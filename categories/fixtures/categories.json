@@ -1,0 +1,152 @@
+[
+    {
+        "model": "categories.maincategory",
+        "pk": 1,
+        "fields": {
+            "name": "Python",
+            "order": 1
+        }
+    },
+    {
+        "model": "categories.maincategory",
+        "pk": 2,
+        "fields": {
+            "name": "Technologies",
+            "order": 2
+        }
+    },
+    {
+        "model": "categories.maincategory",
+        "pk": 3,
+        "fields": {
+            "name": "General",
+            "order": 3
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 1,
+        "fields": {
+            "main_category": 1,
+            "name": "General Coding Help",
+            "description": "Q&A for coding issues, best practices, problem-solving, tips and tricks"
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 2,
+        "fields": {
+            "main_category": 1,
+            "name": "Education",
+            "description": "Learning resources, courses, tutorials, books, exercises."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 3,
+        "fields": {
+            "main_category": 1,
+            "name": "Web",
+            "description": "Web development."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 4,
+        "fields": {
+            "main_category": 1,
+            "name": "Data Science",
+            "description": "Data analysis, visualization, processing."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 5,
+        "fields": {
+            "main_category": 1,
+            "name": "ML & AI",
+            "description": "Machine Learning and Artificial Intelligence."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 6,
+        "fields": {
+            "main_category": 1,
+            "name": "Other",
+            "description": "Other topics related to Python."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 7,
+        "fields": {
+            "main_category": 2,
+            "name": "Front-End",
+            "description": "HTML, CSS, JavaScript, and frameworks."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 8,
+        "fields": {
+            "main_category": 2,
+            "name": "Databases",
+            "description": "Database management, performance, optimization, SQL, NoSQL."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 9,
+        "fields": {
+            "main_category": 2,
+            "name": "DevOps",
+            "description": "Cloud services, infrastructure management, CI/CD, Docker, Kubernetes."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 10,
+        "fields": {
+            "main_category": 2,
+            "name": "VR & AR",
+            "description": "Virtual and Augmented Reality technologies and development."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 11,
+        "fields": {
+            "main_category": 2,
+            "name": "Blockchain",
+            "description": "Smart contracts, crypto algorithms, and related tech."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 12,
+        "fields": {
+            "main_category": 3,
+            "name": "Announcements",
+            "description": "Forum updates, events, and important notices."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 13,
+        "fields": {
+            "main_category": 3,
+            "name": "Job",
+            "description": "Job postings, career advice, and discussion on professional development."
+        }
+    },
+    {
+        "model": "categories.category",
+        "pk": 14,
+        "fields": {
+            "main_category": 3,
+            "name": "Bar",
+            "description": "Off-topic discussions, networking, and community building."
+        }
+    }
+]

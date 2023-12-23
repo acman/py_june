@@ -18,6 +18,7 @@ from other users.
 * pyenv activate py_june
 * pip install -r requirements.txt
 * python manage.py migrate
+* python manage.py loaddata categories.json
 * python manage.py runserver
 * open http://localhost:8000
 * python manage.py createsuperuser
