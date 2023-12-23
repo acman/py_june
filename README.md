@@ -19,6 +19,7 @@ from other users.
 * pip install -r requirements.txt
 * python manage.py migrate
 * python manage.py loaddata categories.json
+* python manage.py collectstatic
 * python manage.py runserver
 * open http://localhost:8000
 * python manage.py createsuperuser
