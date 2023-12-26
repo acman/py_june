@@ -1,4 +1,6 @@
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Row, Column, Submit
 from django.contrib.auth.forms import UserCreationForm
 from .models import ForumUser
 
@@ -9,3 +11,20 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = ForumUser
         fields = ["username", "email", "password1", "password2"]
+
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_method = 'post'
+        self.helper.layout = Layout(
+            Row(
+                Column('username', css_class='col s12'),
+                Column('email', css_class='col s12'),
+            ),
+            Row(
+                Column('password1', css_class='col s6'),
+                Column('password2', css_class='col s6')
+            ),
+            Submit('submit', 'Sign Up', css_class='btn waves-effect waves-light'),
+        )
+        self.field_order = ["username", "email", "password1", "password2"]
