@@ -5,6 +5,11 @@
       <li><a href="{% url 'category_list' %}">Forum</a></li>
       <li><a href="{% url 'signup' %}">SignUp</a></li>
       <li><a href="{% url 'login' %}">LogIn</a></li>
+      <li><form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">LogOut</button>
+        </form>
+      </li>
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
