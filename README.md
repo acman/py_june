@@ -20,11 +20,11 @@ from other users.
 1. Install `pyenv` for managing python versions https://github.com/pyenv/pyenv?tab=readme-ov-file#installation
 2. Install python version used in project  
     `pyenv install $(cat .python-version)`
-3. Create virtual environment
+3. Create virtual environment  
     `python -m venv venv`
 4. Activate virtual environment  
     `source venv/bin/activate`
-5. Install dependencies
+5. Install dependencies  
     `pip install -r requirements.txt`
 6. Run migrations  
     `python manage.py migrate`
@@ -35,7 +35,7 @@ from other users.
 9. Run server  
     `python manage.py runserver`
 10. Open in browser http://localhost:8000
-11. Create superuser for access to admin panel http://localhost:8000/admin
+11. Create superuser for access to admin panel http://localhost:8000/admin  
     `python manage.py createsuperuser`
 
 ## Before commit
