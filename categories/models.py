@@ -9,7 +9,7 @@ class MainCategory(models.Model):
         db_table = "main_categories"
         verbose_name = "Main Category"
         verbose_name_plural = "Main Categories"
-        ordering = ['order']
+        ordering = ["order"]
 
     def __str__(self) -> str:
         return self.name
