@@ -4,26 +4,29 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('categories', '0001_initial'),
+        ("categories", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'verbose_name': 'Category', 'verbose_name_plural': 'Categories'},
+            name="category",
+            options={"verbose_name": "Category", "verbose_name_plural": "Categories"},
         ),
         migrations.AlterModelOptions(
-            name='maincategory',
-            options={'ordering': ['order'], 'verbose_name': 'Main Category', 'verbose_name_plural': 'Main Categories'},
+            name="maincategory",
+            options={
+                "ordering": ["order"],
+                "verbose_name": "Main Category",
+                "verbose_name_plural": "Main Categories",
+            },
         ),
         migrations.AlterModelTable(
-            name='category',
-            table='categories',
+            name="category",
+            table="categories",
         ),
         migrations.AlterModelTable(
-            name='maincategory',
-            table='main_categories',
+            name="maincategory",
+            table="main_categories",
         ),
     ]

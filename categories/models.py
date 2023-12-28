@@ -9,9 +9,9 @@ class MainCategory(models.Model):
         db_table = "main_categories"
         verbose_name = "Main Category"
         verbose_name_plural = "Main Categories"
-        ordering = ['order']
+        ordering = ["order"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
@@ -20,7 +20,7 @@ class Category(models.Model):
     description = models.TextField(max_length=500, blank=True)
     main_category = models.ForeignKey(MainCategory, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
     class Meta:
