@@ -1,8 +1,11 @@
 # py_june
 
-## Project overview
-This project is python help forum. It is a place where you can ask questions about python and get answers 
+Python help forum - a place where you can ask questions about python and get answers 
 from other users.
+
+![Tests](https://github.com/acman/py_june/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/acman/py_june/branch/main/graph/badge.svg)](https://codecov.io/gh/acman/py_june)
+
 
 ## Technologies
 * Python
