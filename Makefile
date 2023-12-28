@@ -29,3 +29,7 @@ lint: pyformatcheck mypy
 
 .PHONY: autofmt
 autofmt: black isort
+
+.PHONY: test
+test:
+	./scripts/test.sh
