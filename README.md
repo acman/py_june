@@ -24,6 +24,9 @@ from other users.
 * open http://localhost:8000
 * python manage.py createsuperuser
 
+## Before commit
+`make lint`
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
