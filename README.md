@@ -25,7 +25,10 @@ from other users.
 * python manage.py createsuperuser
 
 ## Before commit
+Check code style  
 `make lint`
+Check types
+`make mypy`
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

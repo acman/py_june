@@ -16,5 +16,5 @@ class Post(models.Model):
         verbose_name_plural = "Posts"
         ordering = ['-created_at']
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.title
