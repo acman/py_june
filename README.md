@@ -13,6 +13,8 @@ from other users.
 * Terraform
 
 ## Setup
+Install `pyenv` for managing python versions https://github.com/pyenv/pyenv?tab=readme-ov-file#installation
+
 * pyenv install $(cat .python-version)
 * pyenv virtualenv $(cat .python-version) py_june
 * pyenv activate py_june
@@ -25,10 +27,10 @@ from other users.
 * python manage.py createsuperuser
 
 ## Before commit
-Check code style  
-`make lint`
-Check types
-`make mypy`
+Check code  
+`make lint`  
+Autoformat code  
+`make autofmt`
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
