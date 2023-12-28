@@ -1,13 +1,10 @@
 from django.contrib.auth import get_user_model
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.urls import reverse
 
 
 class SignUpViewTest(TestCase):
     def setUp(self):
-        # Test client
-        # self.client = Client()
-
         # URL for view
         self.signup_url = reverse("users:signup")
 
@@ -54,9 +51,6 @@ class SignUpViewTest(TestCase):
 
 class LogInViewTest(TestCase):
     def setUp(self):
-        # Test client
-        # self.client = Client()
-
         # URL for view
         self.login_url = reverse("users:login")
 
