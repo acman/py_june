@@ -30,7 +30,7 @@ class LogInView(View):
         return render(request, self.template_name, {"form": form})
 
     def post(self, request: HttpRequest) -> HttpResponse:
-        form = LogInForm(request.POST)
+        form = LogInForm((request,), data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)

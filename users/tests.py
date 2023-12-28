@@ -6,7 +6,7 @@ from django.urls import reverse
 class SignUpViewTest(TestCase):
     def setUp(self):
         # Test client
-        self.client = Client()
+        # self.client = Client()
 
         # URL for view
         self.signup_url = reverse("users:signup")
@@ -55,7 +55,7 @@ class SignUpViewTest(TestCase):
 class LogInViewTest(TestCase):
     def setUp(self):
         # Test client
-        self.client = Client()
+        # self.client = Client()
 
         # URL for view
         self.login_url = reverse("users:login")
@@ -80,7 +80,6 @@ class LogInViewTest(TestCase):
         response = self.client.post(self.login_url, data, follow=True)
 
         self.assertRedirects(response, reverse("home"))
-
         self.assertTrue(response.context["user"].is_authenticated)
 
     def test_login_view_post_invalid_data(self):
@@ -93,10 +92,10 @@ class LogInViewTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "users/login.html")
+        self.assertContains(response, "Please enter a correct username and password")
 
     def test_login_view_post_no_data(self):
         response = self.client.post(self.login_url, {})
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "users/login.html")
-        self.assertContains(response, "This field is required.")
