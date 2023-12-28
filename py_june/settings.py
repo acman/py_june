@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap4',
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
     'categories.apps.CategoriesConfig',
     'posts.apps.PostsConfig',
-    'crispy_forms',
-    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +133,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.ForumUser'
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

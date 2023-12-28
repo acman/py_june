@@ -23,5 +23,5 @@ urlpatterns = ([
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('forum/', include('categories.urls')),
-    path('', include('users.urls')),
+    path('users/', include('users.urls', namespace='users')),
 ])
