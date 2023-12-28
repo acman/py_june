@@ -1,7 +1,8 @@
-from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Row, Column, Submit
-from django.contrib.auth.forms import UserCreationForm
+from crispy_forms.layout import Column, Layout, Row, Submit
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
 from .models import ForumUser
 
 
@@ -33,15 +34,13 @@ class SignUpForm(UserCreationForm):
 
 
 class LogInForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args: tuple, **kwargs: dict) -> None:
         super(LogInForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
-        self.helper.form_method = 'post'
+        self.helper.form_method = "post"
         self.helper.layout = Layout(
-            'username',
-            'password',
-            Submit('submit', 'Log In', css_class='btn waves-effect waves-light')
-
+            "username",
+            "password",
+            Submit("submit", "Log In", css_class="btn waves-effect waves-light"),
         )
-        self.field_order = ['username', 'password']
-
+        self.field_order = ["username", "password"]

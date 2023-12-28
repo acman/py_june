@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 
-from .forms import SignUpForm, LogInForm
+from .forms import LogInForm, SignUpForm
 
 
 class SignUpView(View):
@@ -29,12 +29,11 @@ class LogInView(View):
         form = LogInForm()
         return render(request, self.template_name, {"form": form})
 
-    def post(self, request):
-        form = LogInForm(request, data=request.POST)
+    def post(self, request: HttpRequest) -> HttpResponse:
+        form = LogInForm(request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
             return redirect("home")
 
         return render(request, self.template_name, {"form": form})
-
