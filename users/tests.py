@@ -93,3 +93,22 @@ class LogInViewTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "users/login.html")
+
+
+class LogoutViewTest(TestCase):
+    def setUp(self):
+        self.logout_url = reverse("users:logout")
+
+        self.user = get_user_model().objects.create_user(
+            username="testuser",
+            password="testpassword123",
+        )
+
+        self.client.login(username="testuser", password="testpassword123")
+
+    def test_logout_view_post(self):
+        response = self.client.post(self.logout_url, follow=True)
+
+        self.assertRedirects(response, reverse("users:login"))
+
+        self.assertFalse(response.context["user"].is_authenticated)
