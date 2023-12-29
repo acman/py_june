@@ -5,9 +5,9 @@
       <li><a href="{% url 'categories:list' %}">Forum</a></li>
       <li><a href="{% url 'users:signup' %}">SignUp</a></li>
       <li><a href="{% url 'users:login' %}">LogIn</a></li>
-        <li><form method="post" action="{% url 'logout' %}">
+      <li><form method="post" action="{% url 'users:logout' %}">
         {% csrf_token %}
-        <button type="submit">LogOut</button>
+        <button type="submit" class="waves-effect waves-light btn">LogOut</button>
         </form>
       </li>
     </ul>
