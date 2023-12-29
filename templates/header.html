@@ -2,10 +2,10 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="{% url 'home' %}" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="{% url 'category_list' %}">Forum</a></li>
-      <li><a href="{% url 'signup' %}">SignUp</a></li>
-      <li><a href="{% url 'login' %}">LogIn</a></li>
-      <li><form method="post" action="{% url 'logout' %}">
+      <li><a href="{% url 'categories:list' %}">Forum</a></li>
+      <li><a href="{% url 'users:signup' %}">SignUp</a></li>
+      <li><a href="{% url 'users:login' %}">LogIn</a></li>
+        <li><form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit">LogOut</button>
         </form>
@@ -13,7 +13,7 @@
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
-      <li><a href="{% url 'category_list' %}">Forum</a></li>
+      <li><a href="{% url 'categories:list' %}">Forum</a></li>
     </ul>
     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
   </div>
