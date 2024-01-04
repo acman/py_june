@@ -8,6 +8,7 @@ from posts.forms import PostForm
 from posts.models import Post
 
 
+
 class CreatePostView(LoginRequiredMixin, View):
     template_name = "posts/post_form.html"
     login_url = "/users/login/"
