@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Post Details
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Post details</h2>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="category">Category</label>
+          <input id="category" type="text" value="{{ post.category }}" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="title">Title</label>
+          <input id="title" type="text" value="{{ post.title }}" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="content">Content</label>
+          <textarea id="content" class="materialize-textarea" readonly>{{ post.content }}</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="author">Author</label>
+          <input id="author" type="text" value="{{ post.author }}" readonly>
+        </div>
+        <div class="input-field col s6">
+          <label for="updated_at">Updated At</label>
+          <input id="updated_at" type="text" value="{{ post.updated_at }}" readonly>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}
+
