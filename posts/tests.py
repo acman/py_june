@@ -21,16 +21,13 @@ class CreatePostViewTest(TestCase):
             main_category=self.main_category,
         )
 
-        self.create_view_url_get = reverse(
-            "posts:create", kwargs={"category_id": self.category.pk}
-        )
-        self.create_view_url_post = reverse(
+        self.create_view_url = reverse(
             "posts:create", kwargs={"category_id": self.category.pk}
         )
 
     def test_create_post_view_get(self):
         self.client.force_login(self.user)
-        response = self.client.get(self.create_view_url_get)
+        response = self.client.get(self.create_view_url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/post_form.html")
 
@@ -42,7 +39,7 @@ class CreatePostViewTest(TestCase):
             "content": "Test text",
         }
 
-        response = self.client.post(self.create_view_url_post, data)
+        response = self.client.post(self.create_view_url, data)
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse("categories:list"))
@@ -53,7 +50,7 @@ class CreatePostViewTest(TestCase):
 
         data = {}
 
-        response = self.client.post(self.create_view_url_post, data)
+        response = self.client.post(self.create_view_url, data)
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/post_form.html")
