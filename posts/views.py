@@ -5,6 +5,7 @@ from django.views import View
 
 from categories.models import Category
 from posts.forms import PostForm
+from posts.models import Post
 
 
 class CreatePostView(LoginRequiredMixin, View):
@@ -28,3 +29,17 @@ class CreatePostView(LoginRequiredMixin, View):
             return redirect("categories:list")
 
         return render(request, self.template_name, {"form": form, "category": category})
+
+
+class DetailsPostView(View):
+    template_name = "posts/post_detail.html"
+    template_name_2 = "posts/post_unavailable.html"
+
+    def get(self, request: HttpRequest, post_id: int) -> HttpResponse:
+        post = Post.objects.get(pk=post_id)
+        context = "This post is currently unavailable"
+
+        if post.is_active:
+            return render(request, self.template_name, {"post": post})
+
+        return render(request, self.template_name_2, {"context": context})
