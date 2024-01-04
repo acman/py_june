@@ -1,12 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 
 from categories.models import Category
 from posts.forms import PostForm
 from posts.models import Post
-
 
 
 class CreatePostView(LoginRequiredMixin, View):
@@ -34,13 +33,8 @@ class CreatePostView(LoginRequiredMixin, View):
 
 class DetailsPostView(View):
     template_name = "posts/post_detail.html"
-    template_name_2 = "posts/post_unavailable.html"
 
     def get(self, request: HttpRequest, post_id: int) -> HttpResponse:
-        post = Post.objects.get(pk=post_id)
-        context = "This post is currently unavailable"
+        post = get_object_or_404(Post, pk=post_id, is_active=True)
 
-        if post.is_active:
-            return render(request, self.template_name, {"post": post})
-
-        return render(request, self.template_name_2, {"context": context})
+        return render(request, self.template_name, {"post": post})
