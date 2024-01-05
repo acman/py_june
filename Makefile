@@ -28,7 +28,7 @@ mypy:
 lint: pyformatcheck mypy
 
 .PHONY: autofmt
-autofmt: black isort
+autofmt: isort black
 
 .PHONY: test
 test:
