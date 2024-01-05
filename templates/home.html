@@ -9,20 +9,18 @@
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">py_june</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Place where you can feel not alone</h5>
+          <h5 class="header col s12 light">There should be one-- and preferably only one --obvious way to do it.</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button"
-             class="btn-large waves-effect waves-light teal lighten-1">Ask question</a>
+          <a href="{% url "posts:create" category_id=1 %}" id="download-button"
+             class="btn waves-effect">Ask question</a>
         </div>
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="{% static 'images/background1.jpg' %}" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -33,28 +31,43 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Last posts</h5>
+            <h5>
+              <span><i class="material-icons">flash_on</i></span>
+              Last posts
+            </h5>
 
-            <p class="light">Several last posts here</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
+            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+            pretium eget</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">trending_up</i></h2>
-            <h5 class="center">Most hot</h5>
+            <h5>
+              <span><i class="material-icons">trending_up</i></span>
+              Most hot
+            </h5>
 
-            <p class="light">Most commented posts</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
+            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+            pretium eget</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">help_outline</i></h2>
-            <h5 class="center">Need help</h5>
+            <h5>
+              <span><i class="material-icons">help_outline</i></span>
+              Need help
+            </h5>
 
-            <p class="light">New posts in category `python help` without answers</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
+            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+            pretium eget</p>
           </div>
         </div>
       </div>
@@ -67,21 +80,21 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Beautiful is better than ugly.</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="{% static 'images/background2.jpg' %}" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
     <div class="section">
 
       <div class="row">
-        <div class="col s12 center">
+        <div class="col s12">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+          <h4>User activities</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
             nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
             eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
             pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed.
@@ -99,7 +112,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Simple is better than complex.</h5>
         </div>
       </div>
     </div>
