@@ -3,7 +3,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import UpdateView
+from django.views.generic import DeleteView, UpdateView
 
 from categories.models import Category
 from posts.forms import PostForm
@@ -46,6 +46,15 @@ class UpdatePostView(UserPassesTestMixin, UpdateView):
     model = Post
     fields = ["title", "content"]
     template_name = "posts/post_update.html"
+    success_url = reverse_lazy("categories:list")
+
+    def test_func(self) -> bool:
+        return self.get_object().author == self.request.user
+
+
+class DeletePostView(UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = "posts/post_delete.html"
     success_url = reverse_lazy("categories:list")
 
     def test_func(self) -> bool:
