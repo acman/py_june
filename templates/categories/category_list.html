@@ -16,7 +16,7 @@
             {% for category in main_category.category_set.all %}
               <h3>{{ category.name }}</h3>
               <p>{{ category.description }}</p>
-              <a href="{% url 'posts:create' category_id=category.pk %}" class="waves-effect waves-light btn">Create Post</a>
+              <a href="{% url 'categories:detail' category_id=category.pk %}" class="waves-effect waves-light btn">Go to...</a>
             {% endfor %}
 
           {% endfor %}
