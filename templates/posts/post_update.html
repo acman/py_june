@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Update Post
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h2>Update post</h2>
+    <form method="post" class="update-post-form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
+      <a href="{% url 'posts:details' post_id=post.pk %}" class="btn waves-effect waves-light">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

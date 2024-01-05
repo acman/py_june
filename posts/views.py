@@ -1,7 +1,9 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from django.views import View
+from django.views.generic import UpdateView
 
 from categories.models import Category
 from posts.forms import PostForm
@@ -38,3 +40,13 @@ class DetailsPostView(View):
         post = get_object_or_404(Post, pk=post_id, is_active=True)
 
         return render(request, self.template_name, {"post": post})
+
+
+class UpdatePostView(UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ["title", "content"]
+    template_name = "posts/post_update.html"
+    success_url = reverse_lazy("categories:list")
+
+    def test_func(self) -> bool:
+        return self.get_object().author == self.request.user
