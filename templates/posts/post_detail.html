@@ -37,6 +37,16 @@
         </div>
       </div>
     </form>
+    <div class="row">
+      <div class="col s6">
+        <a href="{% url 'categories:detail' category_id=post.category.pk %}" class="waves-effect waves-light btn ">Back</a>
+      </div>
+      <div class="col s6 center">
+        {% if request.user.is_authenticated and request.user.id == post.author.id %}
+        <a href="{% url 'posts:update' pk=post.pk %}" class="waves-effect waves-light btn">Edit</a>
+        <a href="{% url 'posts:delete' pk=post.pk %}" class="waves-effect waves-light btn red darken-2">Delete</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 {% endblock %}
-

@@ -8,15 +8,15 @@
   <div class="container">
     <div class="section">
       <div class="row">
-        <div class="col s6">
+        <div class="col s8">
             <h2>{{ category.name }}</h2>
             <p>{{ category.description }}</p>
         </div>
-        <div class="col s6 center">
+        <div class="col s4">
           <a href="{% url 'posts:create' category_id=category.pk %}" class="waves-effect waves-light btn">Create Post</a>
         </div>
-        </div>
       </div>
+    </div>
       <div class="row">
         <div class="col s12 center">
           <table class="highlight">
