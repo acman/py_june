@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Forum
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="section">
+      {% for item in category %}
+      <div class="row">
+        <div class="col s6">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+        </div>
+        <div class="col s6 center">
+          <a href="{% url 'posts:create' category_id=item.pk %}" class="waves-effect waves-light btn">Create Post</a>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <table class="highlight">
+            <thead>
+              <tr>
+                <th>Post</th>
+                <th>Created</th>
+                <th>Post details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for post in objects %}
+              <tr>
+                <td><h5>{{ post.title }}</h5></td>
+                <td><p>{{ post.updated_at }}</p></td>
+                <td><a href="{% url 'posts:details' post_id=post.pk %}" class="waves-effect waves-light btn">Details</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
