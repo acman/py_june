@@ -7,16 +7,14 @@
 {% block body %}
   <div class="container">
     <div class="section">
-      {% for item in category %}
       <div class="row">
         <div class="col s6">
-            <h2>{{ item.name }}</h2>
-            <p>{{ item.description }}</p>
+            <h2>{{ category.name }}</h2>
+            <p>{{ category.description }}</p>
         </div>
         <div class="col s6 center">
-          <a href="{% url 'posts:create' category_id=item.pk %}" class="waves-effect waves-light btn">Create Post</a>
+          <a href="{% url 'posts:create' category_id=category.pk %}" class="waves-effect waves-light btn">Create Post</a>
         </div>
-        {% endfor %}
         </div>
       </div>
       <div class="row">
@@ -30,7 +28,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for post in objects %}
+              {% for post in posts %}
               <tr>
                 <td><h5>{{ post.title }}</h5></td>
                 <td><p>{{ post.updated_at }}</p></td>
