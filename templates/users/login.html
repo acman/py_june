@@ -3,9 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-  <h2>Login</h2>
-  <form method="post" class="login-form">
-    {% csrf_token %}
-    {% crispy form %}
-  </form>
+<div class="login-page">
+  <div class="row center">
+    <h2>Login</h2>
+    <div class="row center login-window">
+      <form method="post" class="login-form">
+        {% csrf_token %}
+        {% crispy form %}
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
