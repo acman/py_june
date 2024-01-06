@@ -4,7 +4,14 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="{% url 'categories:list' %}">Forum</a></li>
       {% if user.is_authenticated %}
-        <li><a href="{% url 'users:logout' %}">Logout</a></li>
+        <li>
+          <a href="#" onclick="document.getElementById('logoutForm').submit();">
+            Logout
+          </a>
+        </li>
+        <form id="logoutForm" method="post" action="{% url 'users:logout' %}" style="display: none;">
+          {% csrf_token %}
+        </form>
       {% else %}
         <li><a href="{% url 'users:login' %}">Login</a></li>
         <li><a href="{% url 'users:signup' %}">Signup</a></li>
