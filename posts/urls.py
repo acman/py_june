@@ -5,8 +5,8 @@ from posts.views import CreatePostView, DeletePostView, DetailsPostView, UpdateP
 app_name = "posts"
 
 urlpatterns = [
-    path("create/<int:category_id>/", CreatePostView.as_view(), name="create"),
-    path("<int:pk>/delete/", DeletePostView.as_view(), name="delete"),
-    path("details/<int:post_id>/", DetailsPostView.as_view(), name="details"),
-    path("<int:pk>/update/", UpdatePostView.as_view(), name="update"),
+    path("create/<slug:category_slug>/", CreatePostView.as_view(), name="create"),
+    path("<slug:post_slug>/delete/", DeletePostView.as_view(), name="delete"),
+    path("details/<slug:post_slug>/", DetailsPostView.as_view(), name="details"),
+    path("<slug:post_slug>/update/", UpdatePostView.as_view(), name="update"),
 ]

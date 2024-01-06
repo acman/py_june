@@ -14,14 +14,14 @@ class CreatePostView(LoginRequiredMixin, View):
     template_name = "posts/post_form.html"
     login_url = "/users/login/"
 
-    def get(self, request: HttpRequest, category_id: int) -> HttpResponse:
-        category = Category.objects.get(pk=category_id)
+    def get(self, request: HttpRequest, category_slug: str) -> HttpResponse:
+        get_object_or_404(Category, slug=category_slug)
         form = PostForm()
         return render(request, self.template_name, {"form": form})
 
-    def post(self, request: HttpRequest, category_id: int) -> HttpResponse:
+    def post(self, request: HttpRequest, category_slug: str) -> HttpResponse:
         form = PostForm(request.POST)
-        category = Category.objects.get(pk=category_id)
+        category = get_object_or_404(Category, slug=category_slug)
 
         if form.is_valid():
             post = form.save(commit=False)
@@ -36,8 +36,8 @@ class CreatePostView(LoginRequiredMixin, View):
 class DetailsPostView(View):
     template_name = "posts/post_detail.html"
 
-    def get(self, request: HttpRequest, post_id: int) -> HttpResponse:
-        post = get_object_or_404(Post, pk=post_id, is_active=True)
+    def get(self, request: HttpRequest, post_slug: str) -> HttpResponse:
+        post = get_object_or_404(Post, slug=post_slug, is_active=True)
 
         return render(request, self.template_name, {"post": post})
 

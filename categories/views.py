@@ -11,8 +11,8 @@ def category_list(request: HttpRequest) -> HttpResponse:
     return render(request, "categories/category_list.html", {"objects": objects})
 
 
-def category_detail(request: HttpRequest, category_id: int) -> HttpResponse:
-    category = get_object_or_404(Category, id=category_id)
+def category_detail(request: HttpRequest, category_slug: str) -> HttpResponse:
+    category = get_object_or_404(Category, slug=category_slug)
     posts = Post.objects.filter(category_id=category.id, is_active=True)
 
     return render(
