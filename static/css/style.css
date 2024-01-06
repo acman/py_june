@@ -91,12 +91,6 @@ footer.page-footer {
     font-size: 1.5rem;
   }
 
-  & h5.header {
-    color: var(--btn-color);
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
-
   .btn {
     background-color: var(--brand-color);
     color: var(--btn-color);
@@ -130,5 +124,31 @@ footer.page-footer {
       color: var(--brand-color);
       text-decoration: underline;
     }
+  }
+}
+
+.home {
+  #slogan {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-color);
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--brand-color);
+  }
+
+  h3 {
+    color: var(--btn-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
   }
 }

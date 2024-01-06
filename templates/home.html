@@ -2,120 +2,137 @@
 {% load static %}
 
 {% block title %}
-	Home
+  Home
 {% endblock %}
 
 {% block body %}
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">There should be one-- and preferably only one --obvious way to do it.</h5>
-        </div>
-        <div class="row center">
-          <a href="{% url "posts:create" category_slug="general-coding-help" %}" id="download-button"
-             class="btn waves-effect">Ask question</a>
-        </div>
-        <br><br>
+  <div class="home">
+    <div class="container">
+      <div class="section">
 
-      </div>
-    </div>
-    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt=""></div>
-  </div>
-
-
-  <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5>
-              <span><i class="material-icons">flash_on</i></span>
-              Last posts
-            </h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
-            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-            pretium eget</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5>
-              <span><i class="material-icons">trending_up</i></span>
-              Most hot
-            </h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
-            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-            pretium eget</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h5>
-              <span><i class="material-icons">help_outline</i></span>
-              Need help
-            </h5>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
-            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-            pretium eget</p>
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 center">
+            <h1 id="slogan">PY_JUNE - Code, Learn, and Grow Together!</h1>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
 
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <h3 class="header col s12 light">There should be one-- and preferably only one --obvious way to do it.</h3>
+          </div>
+          <div class="row center">
+            <a href="{% url "posts:create" category_slug="general-coding-help" %}" id="download-button"
+               class="btn waves-effect"><h4>Ask question</h4></a>
+          </div>
+          <br><br>
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Beautiful is better than ugly.</h5>
         </div>
       </div>
+      <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt=""></div>
     </div>
-    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt=""></div>
-  </div>
 
-  <div class="container">
-    <div class="section">
 
-      <div class="row">
-        <div class="col s12">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>User activities</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-            nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
-            eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-            pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed.
-            Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
-            eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae;</p>
+    <div class="container">
+      <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2>
+                <span><i class="material-icons">flash_on</i></span>
+                Last posts
+              </h2>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
+                ultricies
+                eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+                pretium eget</p>
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2>
+                <span><i class="material-icons">trending_up</i></span>
+                Most hot
+              </h2>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
+                ultricies
+                eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+                pretium eget</p>
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2>
+                <span><i class="material-icons">help_outline</i></span>
+                Need help
+              </h2>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
+                ultricies
+                eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+                pretium eget</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <h3 class="header col s12 light">Beautiful is better than ugly.</h3>
+          </div>
         </div>
       </div>
-
+      <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt=""></div>
     </div>
-  </div>
 
+    <div class="container">
+      <div class="section">
 
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Simple is better than complex.</h5>
+        <div class="row">
+          <div class="col s12">
+            <h2>User activities</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+              nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
+              eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
+              pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed.
+              Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
+              eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et
+              ultrices
+              posuere cubilia Curae;</p>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+
+
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <h3 class="header col s12 light">Simple is better than complex.</h3>
+          </div>
+        </div>
+      </div>
+      <div class="parallax"><img src="{% static 'images/background3.jpg' %}" alt="Unsplashed background img 3"></div>
+    </div>
   </div>
 {% endblock %}
