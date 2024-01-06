@@ -1,29 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'content.html' %}
 
 {% block title %}
   Forum
 {% endblock %}
 
-{% block body %}
-  <div class="container">
-    <div class="section">
+{% block content %}
 
-      <div class="row">
-        <div class="col s12 center">
-          {% for main_category in objects %}
-            <h2>{{ main_category.title }}</h2>
+  {% for main_category in objects %}
+    <h2>{{ main_category.title }}</h2>
 
-            {% for category in main_category.category_set.all %}
-              <h3>{{ category.title }}</h3>
-              <h4>{{ category.description }}</h4>
-              <a href="{% url 'categories:detail' category_slug=category.slug %}" class="waves-effect waves-light btn">Go to...</a>
-            {% endfor %}
+    {% for category in main_category.category_set.all %}
+      <h3>{{ category.title }}</h3>
+      <h4>{{ category.description }}</h4>
+      <a href="{% url 'categories:detail' category_slug=category.slug %}" class="waves-effect waves-light btn">Go
+        to...</a>
+    {% endfor %}
 
-          {% endfor %}
-        </div>
-      </div>
-
-    </div>
-  </div>
+  {% endfor %}
 
 {% endblock %}

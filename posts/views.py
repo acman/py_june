@@ -15,9 +15,9 @@ class CreatePostView(LoginRequiredMixin, View):
     login_url = "/users/login/"
 
     def get(self, request: HttpRequest, category_slug: str) -> HttpResponse:
-        get_object_or_404(Category, slug=category_slug)
+        category = get_object_or_404(Category, slug=category_slug)
         form = PostForm()
-        return render(request, self.template_name, {"form": form})
+        return render(request, self.template_name, {"form": form, "category": category})
 
     def post(self, request: HttpRequest, category_slug: str) -> HttpResponse:
         form = PostForm(request.POST)

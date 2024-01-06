@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'content.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -6,12 +6,15 @@
   Create Post
 {% endblock %}
 
-{% block body %}
-  <div class="container">
+{% block breadcrumbs %}
+  <a href="{% url 'categories:detail' category_slug=category.slug %}">{{ category }}</a> 
+  / <span class="active">Create Post</span>
+{% endblock %}
+
+{% block content %}
     <h1>Create a new post in {{ category.title }}</h1>
     <form method="post" class="create-post-form">
       {% csrf_token %}
       {% crispy form %}
     </form>
-  </div>
 {% endblock %}
