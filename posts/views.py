@@ -44,6 +44,7 @@ class DetailsPostView(View):
 
 class UpdatePostView(UserPassesTestMixin, UpdateView):
     model = Post
+    slug_url_kwarg = "post_slug"
     fields = ["title", "content"]
     template_name = "posts/post_update.html"
     success_url = reverse_lazy("categories:list")
@@ -54,6 +55,7 @@ class UpdatePostView(UserPassesTestMixin, UpdateView):
 
 class DeletePostView(UserPassesTestMixin, DeleteView):
     model = Post
+    slug_url_kwarg = "post_slug"
     template_name = "posts/post_delete.html"
     success_url = reverse_lazy("categories:list")
 

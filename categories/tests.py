@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from categories.models import Category, MainCategory
+from core.tests import TestDataMixin
 from posts.models import Post
 
 
@@ -40,32 +41,10 @@ class CategoryListViewTest(TestCase):
         self.assertContains(response, "Category 1")
 
 
-class CategoryDetailViewTest(TestCase):
-    def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser",
-            password="testpassword123",
-        )
-        self.main_category = MainCategory.objects.create(title="MainCategory")
-        self.category = Category.objects.create(
-            title="Test category",
-            description="Test description",
-            main_category=self.main_category,
-        )
-
-        self.post = Post.objects.create(
-            title="Test Post",
-            content="Test content",
-            author=self.user,
-            category=self.category,
-            created_at="2023-01-01T00:00:00Z",
-            updated_at="2023-01-01T00:00:00Z",
-            is_active=True,
-        )
-
+class CategoryDetailViewTest(TestDataMixin, TestCase):
     def test_category_detail(self):
         response = self.client.get(
-            reverse("categories:detail", kwargs={"category_id": self.category.pk})
+            reverse("categories:detail", kwargs={"category_slug": self.category.slug})
         )
 
         self.assertEqual(response.status_code, 200)

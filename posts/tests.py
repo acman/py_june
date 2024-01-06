@@ -3,27 +3,16 @@ from django.test import TestCase
 from django.urls import reverse
 
 from categories.models import Category, MainCategory
+from core.tests import TestDataMixin
 from posts.models import Post
 
 
-class CreatePostViewTest(TestCase):
+class CreatePostViewTest(TestDataMixin, TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser",
-            password="testpassword123",
-        )
-
-        self.main_category = MainCategory.objects.create(
-            title="MainCategory",
-        )
-
-        self.category = Category.objects.create(
-            title="Test Category",
-            main_category=self.main_category,
-        )
-
+        super().setUp()
+        Post.objects.all().delete()
         self.create_view_url = reverse(
-            "posts:create", kwargs={"category_id": self.category.pk}
+            "posts:create", kwargs={"category_slug": self.category.slug}
         )
 
     def test_create_post_view_get(self):
@@ -58,34 +47,11 @@ class CreatePostViewTest(TestCase):
         self.assertEqual(self.category.post_set.count(), 0)
 
 
-class DetailsPostViewTest(TestCase):
+class DetailsPostViewTest(TestDataMixin, TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser",
-            password="testpassword123",
-        )
-
-        self.main_category = MainCategory.objects.create(
-            title="MainCategory",
-        )
-
-        self.category = Category.objects.create(
-            title="Test Category",
-            main_category=self.main_category,
-        )
-
-        self.post = Post.objects.create(
-            title="Test Post",
-            content="Test content",
-            author=self.user,
-            category=self.category,
-            created_at="2023-01-01T00:00:00Z",
-            updated_at="2023-01-01T00:00:00Z",
-            is_active=True,
-        )
-
+        super().setUp()
         self.detail_post_view_url = reverse(
-            "posts:details", kwargs={"post_id": self.post.pk}
+            "posts:details", kwargs={"post_slug": self.post.slug}
         )
 
     def test_detail_post_view(self):
@@ -104,33 +70,12 @@ class DetailsPostViewTest(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
-class UpdatePostViewTest(TestCase):
+class UpdatePostViewTest(TestDataMixin, TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser",
-            password="testpassword123",
+        super().setUp()
+        self.update_post_view_url = reverse(
+            "posts:update", kwargs={"post_slug": self.post.slug}
         )
-
-        self.main_category = MainCategory.objects.create(
-            title="MainCategory",
-        )
-
-        self.category = Category.objects.create(
-            title="Test Category",
-            main_category=self.main_category,
-        )
-
-        self.post = Post.objects.create(
-            title="Test Post",
-            content="Test content",
-            author=self.user,
-            category=self.category,
-            created_at="2023-01-01T00:00:00Z",
-            updated_at="2023-01-01T00:00:00Z",
-            is_active=True,
-        )
-
-        self.update_post_view_url = reverse("posts:update", kwargs={"pk": self.post.pk})
 
     def test_update_post_get(self):
         self.client.force_login(self.user)
@@ -156,33 +101,12 @@ class UpdatePostViewTest(TestCase):
         self.assertEqual(update_post.content, "Update content")
 
 
-class DeletePostViewTest(TestCase):
+class DeletePostViewTest(TestDataMixin, TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser",
-            password="testpassword123",
+        super().setUp()
+        self.delete_post_view_url = reverse(
+            "posts:delete", kwargs={"post_slug": self.post.slug}
         )
-
-        self.main_category = MainCategory.objects.create(
-            title="MainCategory",
-        )
-
-        self.category = Category.objects.create(
-            title="Test Category",
-            main_category=self.main_category,
-        )
-
-        self.post = Post.objects.create(
-            title="Test Post",
-            content="Test content",
-            author=self.user,
-            category=self.category,
-            created_at="2023-01-01T00:00:00Z",
-            updated_at="2023-01-01T00:00:00Z",
-            is_active=True,
-        )
-
-        self.delete_post_view_url = reverse("posts:delete", kwargs={"pk": self.post.pk})
 
     def test_delete_post_get(self):
         self.client.force_login(self.user)

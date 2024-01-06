@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from categories.models import MainCategory, Category
+from categories.models import Category, MainCategory
 from posts.models import Post
 
 
