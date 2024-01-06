@@ -4,7 +4,7 @@ from core.models import SlugModel
 
 
 class MainCategory(models.Model):
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     order = models.IntegerField(default=0)
 
     class Meta:
@@ -14,16 +14,16 @@ class MainCategory(models.Model):
         ordering = ["order"]
 
     def __str__(self) -> str:
-        return self.name
+        return self.title
 
 
 class Category(SlugModel):
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     description = models.TextField(max_length=500, blank=True)
     main_category = models.ForeignKey(MainCategory, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.name
+        return self.title
 
     class Meta:
         db_table = "categories"

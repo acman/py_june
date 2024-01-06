@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col s12 center">
           {% for main_category in objects %}
-            <h2>{{ main_category.name }}</h2>
+            <h2>{{ main_category.title }}</h2>
 
             {% for category in main_category.category_set.all %}
               <h3>{{ category.name }}</h3>

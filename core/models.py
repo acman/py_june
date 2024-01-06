@@ -12,7 +12,7 @@ class SlugModel(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.title)
 
         # Check if slug is unique
         # If not, append a random string to the slug
