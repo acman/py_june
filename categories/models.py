@@ -1,5 +1,7 @@
 from django.db import models
 
+from core.models import SlugModel
+
 
 class MainCategory(models.Model):
     name = models.CharField(max_length=50)
@@ -15,7 +17,7 @@ class MainCategory(models.Model):
         return self.name
 
 
-class Category(models.Model):
+class Category(SlugModel):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=500, blank=True)
     main_category = models.ForeignKey(MainCategory, on_delete=models.CASCADE)
