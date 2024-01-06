@@ -1,7 +1,8 @@
 import uuid
 
-from django.db import models, IntegrityError
+from django.db import IntegrityError, models
 from django.utils.text import slugify
+from unidecode import unidecode
 
 
 class SlugModel(models.Model):
@@ -10,9 +11,9 @@ class SlugModel(models.Model):
     class Meta:
         abstract = True
 
-    def save(self, *args, **kwargs):
+    def save(self, *args: tuple, **kwargs: dict) -> None:
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(unidecode(self.title))
 
         # Check if slug is unique
         # If not, append a random string to the slug

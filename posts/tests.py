@@ -14,11 +14,11 @@ class CreatePostViewTest(TestCase):
         )
 
         self.main_category = MainCategory.objects.create(
-            name="MainCategory",
+            title="MainCategory",
         )
 
         self.category = Category.objects.create(
-            name="Test Category",
+            title="Test Category",
             main_category=self.main_category,
         )
 
@@ -66,11 +66,11 @@ class DetailsPostViewTest(TestCase):
         )
 
         self.main_category = MainCategory.objects.create(
-            name="MainCategory",
+            title="MainCategory",
         )
 
         self.category = Category.objects.create(
-            name="Test Category",
+            title="Test Category",
             main_category=self.main_category,
         )
 
@@ -112,11 +112,11 @@ class UpdatePostViewTest(TestCase):
         )
 
         self.main_category = MainCategory.objects.create(
-            name="MainCategory",
+            title="MainCategory",
         )
 
         self.category = Category.objects.create(
-            name="Test Category",
+            title="Test Category",
             main_category=self.main_category,
         )
 
@@ -164,11 +164,11 @@ class DeletePostViewTest(TestCase):
         )
 
         self.main_category = MainCategory.objects.create(
-            name="MainCategory",
+            title="MainCategory",
         )
 
         self.category = Category.objects.create(
-            name="Test Category",
+            title="Test Category",
             main_category=self.main_category,
         )
 

@@ -3,7 +3,7 @@
         "model": "categories.maincategory",
         "pk": 1,
         "fields": {
-            "name": "Python",
+            "title": "Python",
             "order": 1
         }
     },
@@ -11,7 +11,7 @@
         "model": "categories.maincategory",
         "pk": 2,
         "fields": {
-            "name": "Technologies",
+            "title": "Technologies",
             "order": 2
         }
     },
@@ -19,7 +19,7 @@
         "model": "categories.maincategory",
         "pk": 3,
         "fields": {
-            "name": "General",
+            "title": "General",
             "order": 3
         }
     },
@@ -28,7 +28,7 @@
         "pk": 1,
         "fields": {
             "main_category": 1,
-            "name": "General Coding Help",
+            "title": "General Coding Help",
             "description": "Q&A for coding issues, best practices, problem-solving, tips and tricks"
         }
     },
@@ -37,7 +37,7 @@
         "pk": 2,
         "fields": {
             "main_category": 1,
-            "name": "Education",
+            "title": "Education",
             "description": "Learning resources, courses, tutorials, books, exercises."
         }
     },
@@ -46,7 +46,7 @@
         "pk": 3,
         "fields": {
             "main_category": 1,
-            "name": "Web",
+            "title": "Web",
             "description": "Web development."
         }
     },
@@ -55,7 +55,7 @@
         "pk": 4,
         "fields": {
             "main_category": 1,
-            "name": "Data Science",
+            "title": "Data Science",
             "description": "Data analysis, visualization, processing."
         }
     },
@@ -64,7 +64,7 @@
         "pk": 5,
         "fields": {
             "main_category": 1,
-            "name": "ML & AI",
+            "title": "ML & AI",
             "description": "Machine Learning and Artificial Intelligence."
         }
     },
@@ -73,7 +73,7 @@
         "pk": 6,
         "fields": {
             "main_category": 1,
-            "name": "Other",
+            "title": "Other",
             "description": "Other topics related to Python."
         }
     },
@@ -82,7 +82,7 @@
         "pk": 7,
         "fields": {
             "main_category": 2,
-            "name": "Front-End",
+            "title": "Front-End",
             "description": "HTML, CSS, JavaScript, and frameworks."
         }
     },
@@ -91,7 +91,7 @@
         "pk": 8,
         "fields": {
             "main_category": 2,
-            "name": "Databases",
+            "title": "Databases",
             "description": "Database management, performance, optimization, SQL, NoSQL."
         }
     },
@@ -100,7 +100,7 @@
         "pk": 9,
         "fields": {
             "main_category": 2,
-            "name": "DevOps",
+            "title": "DevOps",
             "description": "Cloud services, infrastructure management, CI/CD, Docker, Kubernetes."
         }
     },
@@ -109,7 +109,7 @@
         "pk": 10,
         "fields": {
             "main_category": 2,
-            "name": "VR & AR",
+            "title": "VR & AR",
             "description": "Virtual and Augmented Reality technologies and development."
         }
     },
@@ -118,7 +118,7 @@
         "pk": 11,
         "fields": {
             "main_category": 2,
-            "name": "Blockchain",
+            "title": "Blockchain",
             "description": "Smart contracts, crypto algorithms, and related tech."
         }
     },
@@ -127,7 +127,7 @@
         "pk": 12,
         "fields": {
             "main_category": 3,
-            "name": "Announcements",
+            "title": "Announcements",
             "description": "Forum updates, events, and important notices."
         }
     },
@@ -136,7 +136,7 @@
         "pk": 13,
         "fields": {
             "main_category": 3,
-            "name": "Job",
+            "title": "Job",
             "description": "Job postings, career advice, and discussion on professional development."
         }
     },
@@ -145,7 +145,7 @@
         "pk": 14,
         "fields": {
             "main_category": 3,
-            "name": "Bar",
+            "title": "Bar",
             "description": "Off-topic discussions, networking, and community building."
         }
     }
