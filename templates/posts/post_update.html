@@ -8,7 +8,7 @@
 
 {% block body %}
   <div class="container">
-    <h2>Update post</h2>
+    <h1>Update {{ post.title }}</h1>
     <form method="post" class="update-post-form">
       {% csrf_token %}
       {{ form|crispy }}

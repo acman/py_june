@@ -8,7 +8,7 @@
 
 {% block body %}
   <div class="container">
-    <h2>Create a new post in {{ category.title }}</h2>
+    <h1>Create a new post in {{ category.title }}</h1>
     <form method="post" class="create-post-form">
       {% csrf_token %}
       {% crispy form %}

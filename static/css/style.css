@@ -87,6 +87,19 @@ footer.page-footer {
 .container {
   font-family: "Roboto", Corbel, Avenir, "Lucida Grande", "Lucida Sans", sans-serif;
 
+  h1 {
+    font-size: 2rem;
+    color: var(--brand-color);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
   #logo-container {
     font-size: 1.5rem;
   }
@@ -98,7 +111,7 @@ footer.page-footer {
     font-size: 1.2rem;
     font-weight: 700;
     border-radius: 5px;
-    padding: 1em 50px 1.1em;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     letter-spacing: 0;
@@ -150,5 +163,20 @@ footer.page-footer {
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0;
+  }
+
+  .btn {
+    background-color: var(--brand-color);
+    color: var(--btn-color);
+    text-transform: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 1em 50px 1.1em;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0;
+    height: auto;
+    line-height: normal;
   }
 }

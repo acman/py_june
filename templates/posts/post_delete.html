@@ -3,12 +3,12 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    Delete post
+    Delete Post
 {% endblock%}
 
 {% block body %}
     <div class="container">
-    <h2>Delete post</h2>
+    <h1>Delete {{ post.title }}</h1>
     <form method="post" class="delete-post-form">
       {% csrf_token %}
         <p>Are you sure you want to delete post "{{ post.title }}"</p>
