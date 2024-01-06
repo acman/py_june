@@ -30,12 +30,10 @@ from other users.
     `python manage.py migrate`
 7. Load test data  
     `python manage.py loaddata categories.json`
-8. Collect static files  
-    `python manage.py collectstatic`
-9. Run server  
+8. Run server  
     `python manage.py runserver`
-10. Open in browser http://localhost:8000
-11. Create superuser for access to admin panel http://localhost:8000/admin  
+9. Open in browser http://localhost:8000
+10. Create superuser for access to admin panel http://localhost:8000/admin  
     `python manage.py createsuperuser`
 
 ## Before commit
