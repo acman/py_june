@@ -1,8 +1,6 @@
-from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from categories.models import Category, MainCategory
 from core.tests import TestDataMixin
 from posts.models import Post
 
