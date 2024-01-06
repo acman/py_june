@@ -29,6 +29,7 @@
         "fields": {
             "main_category": 1,
             "title": "General Coding Help",
+            "slug": "general-coding-help",
             "description": "Q&A for coding issues, best practices, problem-solving, tips and tricks"
         }
     },
@@ -38,6 +39,7 @@
         "fields": {
             "main_category": 1,
             "title": "Education",
+            "slug": "education",
             "description": "Learning resources, courses, tutorials, books, exercises."
         }
     },
@@ -47,6 +49,7 @@
         "fields": {
             "main_category": 1,
             "title": "Web",
+            "slug": "web",
             "description": "Web development."
         }
     },
@@ -56,6 +59,7 @@
         "fields": {
             "main_category": 1,
             "title": "Data Science",
+            "slug": "data-science",
             "description": "Data analysis, visualization, processing."
         }
     },
@@ -65,6 +69,7 @@
         "fields": {
             "main_category": 1,
             "title": "ML & AI",
+            "slug": "ml-ai",
             "description": "Machine Learning and Artificial Intelligence."
         }
     },
@@ -74,6 +79,7 @@
         "fields": {
             "main_category": 1,
             "title": "Other",
+            "slug": "other",
             "description": "Other topics related to Python."
         }
     },
@@ -83,6 +89,7 @@
         "fields": {
             "main_category": 2,
             "title": "Front-End",
+            "slug": "front-end",
             "description": "HTML, CSS, JavaScript, and frameworks."
         }
     },
@@ -92,6 +99,7 @@
         "fields": {
             "main_category": 2,
             "title": "Databases",
+            "slug": "databases",
             "description": "Database management, performance, optimization, SQL, NoSQL."
         }
     },
@@ -101,6 +109,7 @@
         "fields": {
             "main_category": 2,
             "title": "DevOps",
+            "slug": "devops",
             "description": "Cloud services, infrastructure management, CI/CD, Docker, Kubernetes."
         }
     },
@@ -110,6 +119,7 @@
         "fields": {
             "main_category": 2,
             "title": "VR & AR",
+            "slug": "vr-ar",
             "description": "Virtual and Augmented Reality technologies and development."
         }
     },
@@ -119,6 +129,7 @@
         "fields": {
             "main_category": 2,
             "title": "Blockchain",
+            "slug": "blockchain",
             "description": "Smart contracts, crypto algorithms, and related tech."
         }
     },
@@ -128,6 +139,7 @@
         "fields": {
             "main_category": 3,
             "title": "Announcements",
+            "slug": "announcements",
             "description": "Forum updates, events, and important notices."
         }
     },
@@ -137,6 +149,7 @@
         "fields": {
             "main_category": 3,
             "title": "Job",
+            "slug": "job",
             "description": "Job postings, career advice, and discussion on professional development."
         }
     },
@@ -146,6 +159,7 @@
         "fields": {
             "main_category": 3,
             "title": "Bar",
+            "slug": "bar",
             "description": "Off-topic discussions, networking, and community building."
         }
     }
