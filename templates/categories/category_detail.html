@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Forum
+  {{ category.title }}
 {% endblock %}
 
 {% block body %}
@@ -9,39 +9,44 @@
     <div class="section">
       <div class="row">
         <div class="col s8">
-            <h2>{{ category.title }}</h2>
-            <p>{{ category.description }}</p>
+          <h1>{{ category.title }}</h1>
+          <h2>{{ category.description }}</h2>
         </div>
         <div class="col s4">
-          <a href="{% url 'posts:create' category_slug=category.slug %}" class="waves-effect waves-light btn">Create 
-            Post</a>
+          <a href="{% url 'posts:create' category_slug=category.slug %}" class="waves-effect waves-light btn">
+            Create Post
+          </a>
         </div>
       </div>
     </div>
-      <div class="row">
-        <div class="col s12 center">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th>Post</th>
-                <th>Created</th>
-                <th>Post details</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for post in posts %}
-              <tr>
-                <td><h5>{{ post.title }}</h5></td>
-                <td><p>{{ post.updated_at }}</p></td>
-                <td><a href="{% url 'posts:details' post_slug=post.slug %}" class="waves-effect waves-light btn">Details</a></td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+    <div class="row">
+      <div class="col s12 center">
+        <table class="highlight">
+          <thead>
+          <tr>
+            <th>Post</th>
+            <th>Created</th>
+            <th>Post details</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for post in posts %}
+            <tr>
+              <td><h3>{{ post.title }}</h3></td>
+              <td><p>{{ post.updated_at }}</p></td>
+              <td>
+                <a href="{% url 'posts:details' post_slug=post.slug %}" class="waves-effect waves-light btn">
+                  Details
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
       </div>
+    </div>
 
-    </div>
+  </div>
   </div>
 
 {% endblock %}
