@@ -25,6 +25,8 @@
       <div class="col s6">
         <a href="{% url 'categories:detail' category_slug=post.category.slug %}" class="waves-effect waves-light btn 
 ">Back</a>
+        <a href="{% url 'comments:create' post_slug=post.slug %}" class="waves-effect waves-light btn
+">Answer</a>
       </div>
       <div class="col s6 center">
         {% if request.user.is_authenticated and request.user.id == post.author.id %}

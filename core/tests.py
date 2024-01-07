@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from categories.models import Category, MainCategory
+from comments.models import Comment
 from posts.models import Post
 
 
@@ -32,4 +33,11 @@ class TestDataMixin:
             content="Test content",
             author=self.user,
             category=self.category,
+        )
+
+        self.comment = Comment.objects.create(
+            title="Test comment",
+            content="Test Comment content",
+            author=self.user,
+            post_id=self.post.pk,
         )
