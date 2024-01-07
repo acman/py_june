@@ -37,7 +37,6 @@ class TestDataMixin:
 
         self.comment = Comment.objects.create(
             title="Test comment",
-            slug="comment",
             content="Test Comment content",
             author=self.user,
             post_id=self.post.pk,

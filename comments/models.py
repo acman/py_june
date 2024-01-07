@@ -1,9 +1,7 @@
 from django.db import models
 
-from core.models import SlugModel
 
-
-class Comment(SlugModel):
+class Comment(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=500, blank=True)
     author = models.ForeignKey("users.ForumUser", on_delete=models.CASCADE)
