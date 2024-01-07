@@ -29,15 +29,16 @@ class CreateCommentTest(TestDataMixin, TestCase):
         data = {
             "title": "Test Comment1",
             "content": "Rest comment content1",
-
         }
 
         response = self.client.post(self.create_comment_url, data)
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
-            response, reverse("categories:detail",
-                              kwargs={"category_slug": self.post.category.slug})
+            response,
+            reverse(
+                "categories:detail", kwargs={"category_slug": self.post.category.slug}
+            ),
         )
 
         comment = Comment.objects.get(title="Test Comment1")
