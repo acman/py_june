@@ -24,6 +24,7 @@ class CreateCommentView(LoginRequiredMixin, View):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.author = self.request.user
+            comment.post_id = post.pk
             comment.save()
             return redirect("categories:detail", category_slug=post.category.slug)
 
