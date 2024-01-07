@@ -259,3 +259,7 @@
   backdrop-filter: blur(20px);
 
 }
+
+.form-control {
+  color: #fff;
+}
