@@ -3,10 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-<h2>Registration</h2>
-  <form method="post" class="signup-form">
-    {% csrf_token %}
-    {% crispy form %}
-  </form>
-
+<div class="signup-page">
+  <div class="row center">
+    <h2>Registration</h2>
+    <div class="row center signup-window">
+      <form method="post" class="signup-form">
+        <h5>{% csrf_token %}</h5>
+        <h6>{% crispy form %}</h6>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

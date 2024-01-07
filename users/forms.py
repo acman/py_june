@@ -25,8 +25,8 @@ class SignUpForm(UserCreationForm):
                 Column("email", css_class="col s12"),
             ),
             Row(
-                Column("password1", css_class="col s6"),
-                Column("password2", css_class="col s6"),
+                Column("password1", css_class="col s12"),
+                Column("password2", css_class="col s12"),
             ),
             Submit("submit", "Sign Up", css_class="btn waves-effect waves-light"),
         )
