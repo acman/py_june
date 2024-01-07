@@ -1,53 +1,54 @@
-{% extends 'base.html' %}
+{% extends 'content.html' %}
 
 {% block title %}
   {{ category.title }}
 {% endblock %}
 
-{% block body %}
-  <div class="container">
-    <div class="section">
-      <div class="row">
-        <div class="col s8">
-          <h1>{{ category.title }}</h1>
-          <h2>{{ category.description }}</h2>
-        </div>
-        <div class="col s4">
-          <a href="{% url 'posts:create' category_slug=category.slug %}" class="waves-effect waves-light btn">
-            Create Post
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12 center">
-        <table class="highlight">
-          <thead>
-          <tr>
-            <th>Post</th>
-            <th>Created</th>
-            <th>Post details</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for post in posts %}
-            <tr>
-              <td><h3>{{ post.title }}</h3></td>
-              <td><p>{{ post.updated_at }}</p></td>
-              <td>
-                <a href="{% url 'posts:details' post_slug=post.slug %}" class="waves-effect waves-light btn">
-                  Details
-                </a>
-              </td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
+{% block breadcrumbs %}
+  <span class="active">{{ category.title }}</span>
+{% endblock %}
 
+{% block content %} 
+
+  <div class="row">
+    <div class="col s8">
+      <h1>{{ category.title }}</h1>
+      <h2>{{ category.description }}</h2>
+    </div>
+    <div class="col s4">
+      <a href="{% url 'posts:create' category_slug=category.slug %}" class="waves-effect waves-light btn">
+        Create Post
+      </a>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col s12 center">
+      <table class="highlight">
+        <thead>
+        <tr>
+          <th>Post</th>
+          <th>Created</th>
+          <th>Post details</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+          <tr>
+            <td><h3>{{ post.title }}</h3></td>
+            <td><p>{{ post.updated_at }}</p></td>
+            <td>
+              <a href="{% url 'posts:details' post_slug=post.slug %}" class="waves-effect waves-light btn">
+                Details
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
+
 
 {% endblock %}
 
