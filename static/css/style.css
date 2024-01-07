@@ -253,3 +253,9 @@
 .requiredField {
   color: #000;
 }
+
+.sidenav {
+  background: transparent;
+  backdrop-filter: blur(20px);
+
+}
