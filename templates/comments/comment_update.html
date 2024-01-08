@@ -1,0 +1,20 @@
+{% extends 'content.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+   Edit Comment
+{% endblock %}
+
+{% block breadcrumbs %}
+  <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post }}</a>
+  / <span class="active">Edit Comments</span>
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Comment {{ post.title }}</h1>
+    <form method="post" class="update-comment-form">
+      {% csrf_token %}
+      {% crispy form %}
+    </form>
+{% endblock %}
