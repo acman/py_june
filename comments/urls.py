@@ -7,6 +7,8 @@ from comments.views import (
     UpdateCommentView,
 )
 
+from comments.views import CreateCommentView, DeleteCommentView, UpdateCommentView
+
 app_name = "comments"
 
 urlpatterns = [
@@ -21,6 +23,7 @@ urlpatterns = [
         DeleteCommentView.as_view(),
         name="delete",
     ),
+
     path(
         "answer/<slug:post_slug>/<int:comment_pk>/",
         AnswerCommentView.as_view(),
