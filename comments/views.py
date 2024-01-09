@@ -71,3 +71,29 @@ class UpdateCommentView(UserPassesTestMixin, View):
             self.template_name,
             {"form": form, "post": post, "comment": comment},
         )
+
+
+class DeleteCommentView(UserPassesTestMixin, View):
+    template_name = "comments/comment_delete.html"
+
+    def test_func(self) -> bool:
+        comment_pk = self.kwargs.get("comment_pk")
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        return comment.author == self.request.user
+
+    def get(
+        self, request: HttpRequest, post_slug: str, comment_pk: int
+    ) -> HttpResponse:
+        post = get_object_or_404(Post, slug=post_slug)
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        return render(request, self.template_name, {"post": post, "comment": comment})
+
+    def post(
+        self, request: HttpRequest, post_slug: str, comment_pk: int
+    ) -> HttpResponse:
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        post = get_object_or_404(Post, slug=post_slug)
+
+        comment.delete()
+
+        return redirect("posts:details", post_slug=post.slug)

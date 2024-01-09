@@ -82,3 +82,30 @@ class UpdateCommentTest(TestDataMixin, TestCase):
         comment = Comment.objects.get(title="Update Comment1")
         self.assertEqual(comment.title, "Update Comment1")
         self.assertEqual(comment.post, self.post)
+
+
+class DeleteCommentTest(TestDataMixin, TestCase):
+    def setUp(self):
+        super().setUp()
+        self.delete_comment_url = reverse(
+            "comments:delete",
+            kwargs={"post_slug": self.post.slug, "comment_pk": self.comment.pk},
+        )
+
+    def test_delete_comment_view_get(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.delete_comment_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "comments/comment_delete.html")
+
+    def test_delete_comment_view_post(self):
+        self.client.force_login(self.user)
+
+        response = self.client.post(self.delete_comment_url)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, reverse("posts:details", kwargs={"post_slug": self.post.slug})
+        )
