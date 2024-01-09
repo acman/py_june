@@ -15,6 +15,8 @@
     <h1>Edit Comment {{ post.title }}</h1>
     <form method="post" class="update-comment-form">
       {% csrf_token %}
-      {% crispy form %}
+      {{ form|crispy }}
+      <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
+      <a href="{% url 'posts:details' post_slug=post.slug %}" class="btn waves-effect waves-light">Cancel</a>
     </form>
 {% endblock %}

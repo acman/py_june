@@ -44,3 +44,41 @@ class CreateCommentTest(TestDataMixin, TestCase):
         comment = Comment.objects.get(title="Test Comment1")
         self.assertEqual(comment.title, "Test Comment1")
         self.assertEqual(comment.post, self.post)
+
+
+class UpdateCommentTest(TestDataMixin, TestCase):
+    def setUp(self):
+        super().setUp()
+        self.update_comment_url = reverse(
+            "comments:update",
+            kwargs={"post_slug": self.post.slug, "comment_pk": self.comment.pk},
+        )
+
+    def test_update_comment_view_get(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.update_comment_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "comments/comment_update.html")
+        self.assertIsInstance(response.context["form"], CommentForm)
+        self.assertEqual(response.context["post"], self.post)
+
+    def test_update_comment_view_post(self):
+        self.client.force_login(self.user)
+
+        data = {
+            "title": "Update Comment1",
+            "content": "Update comment content1",
+        }
+
+        response = self.client.post(self.update_comment_url, data)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, reverse("posts:details", kwargs={"post_slug": self.post.slug})
+        )
+
+        comment = Comment.objects.get(title="Update Comment1")
+        self.assertEqual(comment.title, "Update Comment1")
+        self.assertEqual(comment.post, self.post)
