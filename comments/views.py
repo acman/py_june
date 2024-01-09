@@ -105,8 +105,9 @@ class AnswerCommentView(LoginRequiredMixin, View):
 
         if form.is_valid():
             answer = form.save(commit=False)
+            answer.title = comment.title
             answer.author = self.request.user
-            answer.comment_id = comment.pk
+            answer.post_id = post.pk
             answer.save()
             return redirect("posts:details", post_slug=post.slug)
 

@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Comment {{ post.title }}</h1>
+    <h1>Comment for "{{ comment.title }}"</h1>
     <p>{{ comment.content }}</p>
     <form method="post" class="answer-comment-form">
       {% csrf_token %}
