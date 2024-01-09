@@ -28,7 +28,11 @@ class SignUpForm(UserCreationForm):
                 Column("password1", css_class="col s12"),
                 Column("password2", css_class="col s12"),
             ),
-            Submit("submit", "Sign Up", css_class="btn waves-effect waves-light"),
+            Submit(
+                "submit",
+                "Sign Up",
+                css_class="btn waves-effect waves-light submit-button",
+            ),
         )
         self.field_order = ["username", "email", "password1", "password2"]
 
@@ -41,6 +45,10 @@ class LogInForm(AuthenticationForm):
         self.helper.layout = Layout(
             "username",
             "password",
-            Submit("submit", "Log In", css_class="btn waves-effect waves-light"),
+            Submit(
+                "submit",
+                "Log In",
+                css_class="btn waves-effect waves-light submit-button",
+            ),
         )
         self.field_order = ["username", "password"]
