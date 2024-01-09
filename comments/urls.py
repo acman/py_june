@@ -1,6 +1,11 @@
 from django.urls import path
 
-from comments.views import AnswerCommentView, CreateCommentView, DeleteCommentView, UpdateCommentView
+from comments.views import (
+    AnswerCommentView,
+    CreateCommentView,
+    DeleteCommentView,
+    UpdateCommentView,
+)
 
 app_name = "comments"
 
@@ -16,5 +21,9 @@ urlpatterns = [
         DeleteCommentView.as_view(),
         name="delete",
     ),
-    path("answer/<slug:post_slug>/<int:comment_pk>/", AnswerCommentView.as_view(), name="answer"),
+    path(
+        "answer/<slug:post_slug>/<int:comment_pk>/",
+        AnswerCommentView.as_view(),
+        name="answer",
+    ),
 ]

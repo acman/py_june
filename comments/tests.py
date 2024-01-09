@@ -130,7 +130,12 @@ class AnswerCommentTest(TestDataMixin, TestCase):
     def test_answer_comment_view_post(self):
         self.client.force_login(self.user)
 
-        response = self.client.post(self.answer_comment_url, {"content": "Test answer content", })
+        response = self.client.post(
+            self.answer_comment_url,
+            {
+                "content": "Test answer content",
+            },
+        )
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
