@@ -34,12 +34,8 @@ class CreateCommentTest(TestDataMixin, TestCase):
         response = self.client.post(self.create_comment_url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(
-            response,
-            reverse(
-                "categories:detail", kwargs={"category_slug": self.post.category.slug}
-            ),
-        )
+        self.assertRedirects(response, reverse("categories:detail",
+                                               kwargs={"category_slug": self.post.category.slug}))
 
         comment = Comment.objects.get(title="Test Comment1")
         self.assertEqual(comment.title, "Test Comment1")
@@ -49,10 +45,8 @@ class CreateCommentTest(TestDataMixin, TestCase):
 class UpdateCommentTest(TestDataMixin, TestCase):
     def setUp(self):
         super().setUp()
-        self.update_comment_url = reverse(
-            "comments:update",
-            kwargs={"post_slug": self.post.slug, "comment_pk": self.comment.pk},
-        )
+        self.update_comment_url = reverse("comments:update",
+                                          kwargs={"post_slug": self.post.slug, "comment_pk": self.comment.pk})
 
     def test_update_comment_view_get(self):
         self.client.force_login(self.user)
@@ -75,10 +69,31 @@ class UpdateCommentTest(TestDataMixin, TestCase):
         response = self.client.post(self.update_comment_url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(
-            response, reverse("posts:details", kwargs={"post_slug": self.post.slug})
-        )
+        self.assertRedirects(response, reverse("posts:details", kwargs={"post_slug": self.post.slug}))
 
         comment = Comment.objects.get(title="Update Comment1")
         self.assertEqual(comment.title, "Update Comment1")
         self.assertEqual(comment.post, self.post)
+
+
+class DeleteCommentTest(TestDataMixin, TestCase):
+    def setUp(self):
+        super().setUp()
+        self.delete_comment_url = reverse("comments:delete",
+                                          kwargs={"post_slug": self.post.slug, "comment_pk": self.comment.pk})
+
+    def test_delete_comment_view_get(self):
+        self.client.force_login(self.user)
+
+        response = self.client.get(self.delete_comment_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "comments/comment_delete.html")
+
+    def test_delete_comment_view_post(self):
+        self.client.force_login(self.user)
+
+        response = self.client.post(self.delete_comment_url)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse("posts:details", kwargs={"post_slug": self.post.slug}))
