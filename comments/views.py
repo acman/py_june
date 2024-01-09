@@ -5,7 +5,7 @@ from django.views import View
 
 from posts.models import Post
 
-from .forms import CommentForm
+from .forms import CommentForm, AnswerCommentForm
 from .models import Comment
 
 
@@ -40,21 +40,13 @@ class UpdateCommentView(UserPassesTestMixin, View):
         comment = get_object_or_404(Comment, pk=comment_pk)
         return comment.author == self.request.user
 
-    def get(
-        self, request: HttpRequest, post_slug: str, comment_pk: int
-    ) -> HttpResponse:
+    def get(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
         post = get_object_or_404(Post, slug=post_slug)
         comment = get_object_or_404(Comment, pk=comment_pk)
         form = CommentForm(instance=comment)
-        return render(
-            request,
-            self.template_name,
-            {"form": form, "post": post, "comment": comment},
-        )
+        return render(request, self.template_name,{"form": form, "post": post, "comment": comment})
 
-    def post(
-        self, request: HttpRequest, post_slug: str, comment_pk: int
-    ) -> HttpResponse:
+    def post(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
         form = CommentForm(request.POST)
         post = get_object_or_404(Post, slug=post_slug)
         comment = get_object_or_404(Comment, pk=comment_pk)
@@ -81,19 +73,41 @@ class DeleteCommentView(UserPassesTestMixin, View):
         comment = get_object_or_404(Comment, pk=comment_pk)
         return comment.author == self.request.user
 
-    def get(
-        self, request: HttpRequest, post_slug: str, comment_pk: int
-    ) -> HttpResponse:
+    def get(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
         post = get_object_or_404(Post, slug=post_slug)
         comment = get_object_or_404(Comment, pk=comment_pk)
         return render(request, self.template_name, {"post": post, "comment": comment})
 
-    def post(
-        self, request: HttpRequest, post_slug: str, comment_pk: int
-    ) -> HttpResponse:
+    def post(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
         comment = get_object_or_404(Comment, pk=comment_pk)
         post = get_object_or_404(Post, slug=post_slug)
 
         comment.delete()
 
         return redirect("posts:details", post_slug=post.slug)
+
+
+class AnswerCommentView(LoginRequiredMixin, View):
+    template_name = "comments/comment_answer.html"
+    login_url = "/users/login/"
+
+    def get(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
+        post = get_object_or_404(Post, slug=post_slug)
+        comment = get_object_or_404(Comment, pk=comment_pk)
+        form = AnswerCommentForm()
+
+        return render(request, self.template_name, {"form": form, "comment": comment, "post": post})
+
+    def post(self, request: HttpRequest, post_slug: str, comment_pk: int) -> HttpResponse:
+        post = get_object_or_404(Post, slug=post_slug)
+        form = AnswerCommentForm(request.POST)
+        comment = get_object_or_404(Comment, pk=comment_pk)
+
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.author = self.request.user
+            answer.comment_id = comment.pk
+            answer.save()
+            return redirect("posts:details", post_slug=post.slug)
+
+        return render(request, self.template_name, {"form": form, "comment": comment, "post": post})
