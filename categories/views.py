@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, render
 
@@ -14,9 +15,12 @@ def category_list(request: HttpRequest) -> HttpResponse:
 def category_detail(request: HttpRequest, category_slug: str) -> HttpResponse:
     category = get_object_or_404(Category, slug=category_slug)
     posts = Post.objects.filter(category_id=category.id, is_active=True)
+    paginator = Paginator(posts, 2)
 
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     return render(
         request,
         "categories/category_detail.html",
-        {"posts": posts, "category": category},
+        {"page_obj": page_obj, "category": category},
     )
