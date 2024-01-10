@@ -1,9 +1,6 @@
-from itertools import groupby
-from operator import attrgetter
-
 from django.core.paginator import Paginator
 from django.db import models
-from django.db.models import Count, OuterRef, Prefetch, Subquery
+from django.db.models import Count, OuterRef, Subquery
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, render
 
