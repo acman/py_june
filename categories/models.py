@@ -20,7 +20,9 @@ class MainCategory(models.Model):
 class Category(SlugModel):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500, blank=True)
-    main_category = models.ForeignKey(MainCategory, on_delete=models.CASCADE, related_name="categories")
+    main_category = models.ForeignKey(
+        MainCategory, on_delete=models.CASCADE, related_name="categories"
+    )
 
     def __str__(self) -> str:
         return self.title

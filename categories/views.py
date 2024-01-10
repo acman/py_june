@@ -3,7 +3,7 @@ from operator import attrgetter
 
 from django.core.paginator import Paginator
 from django.db import models
-from django.db.models import Count, OuterRef, Subquery, Prefetch
+from django.db.models import Count, OuterRef, Prefetch, Subquery
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, render
 
@@ -14,20 +14,22 @@ from posts.models import Post
 
 def category_list(request: HttpRequest) -> HttpResponse:
     # FIXME: Probably not the best way to do this
-    last_comment_subquery = Comment.objects.filter(
-        post__category=OuterRef('pk')
-    ).order_by('-created_at').values('title')[:1]
+    last_comment_subquery = (
+        Comment.objects.filter(post__category=OuterRef("pk"))
+        .order_by("-created_at")
+        .values("title")[:1]
+    )
 
     categories = Category.objects.annotate(
-        post_count=Count('posts', distinct=True),
-        comment_count=Count('posts__comments', distinct=True),
-        last_comment=Subquery(last_comment_subquery, output_field=models.CharField())
-    ).select_related('main_category')
+        post_count=Count("posts", distinct=True),
+        comment_count=Count("posts__comments", distinct=True),
+        last_comment=Subquery(last_comment_subquery, output_field=models.CharField()),
+    ).select_related("main_category")
 
     main_categories = MainCategory.objects.all()
     context = {
-        'main_categories': main_categories,
-        'categories': categories,
+        "main_categories": main_categories,
+        "categories": categories,
     }
     return render(request, "categories/category_list.html", context)
 
