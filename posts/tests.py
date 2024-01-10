@@ -31,7 +31,7 @@ class CreatePostViewTest(TestDataMixin, TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse("categories:list"))
-        self.assertEqual(self.category.post_set.count(), 1)
+        self.assertEqual(self.category.posts.count(), 1)
 
     def test_create_post_view_post_invalid_data(self):
         self.client.force_login(self.user)
@@ -42,7 +42,7 @@ class CreatePostViewTest(TestDataMixin, TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/post_form.html")
-        self.assertEqual(self.category.post_set.count(), 0)
+        self.assertEqual(self.category.posts.count(), 0)
 
 
 class DetailsPostViewTest(TestDataMixin, TestCase):

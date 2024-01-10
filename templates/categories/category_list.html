@@ -20,9 +20,9 @@
 
 
     <tbody>
-      {% for category in main_category.category_set.all %}
-        {% with post_count=category.post_set.count %}
-        {% with comment_count=category.post_set.comment_set.count %}
+      {% for category in main_category.categories.all %}
+        {% with post_count=category.posts.count %}
+        {% with comment_count=category.posts.comments.count %}
           <tr>
             <td>
               <ul>
