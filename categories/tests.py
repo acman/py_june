@@ -1,8 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
 from categories.models import Category, MainCategory
 from core.tests import TestDataMixin
+from posts.models import Post
 
 
 class CategoryModelTest(TestCase):
@@ -40,10 +42,39 @@ class CategoryListViewTest(TestCase):
 
 
 class CategoryDetailViewTest(TestDataMixin, TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="testuser",
+            password="testpassword123",
+        )
+        self.main_category = MainCategory.objects.create(title="MainCategory")
+        self.category = Category.objects.create(
+            title="Test category",
+            slug="test-category",
+            description="Test description",
+            main_category=self.main_category,
+        )
+        for i in range(15):
+            Post.objects.create(
+                title=f"Test Post {i}",
+                slug=f"test-post-{i}",
+                content=f"Test content{i}",
+                author=self.user,
+                category=self.category,
+            )
+
     def test_category_detail(self):
         response = self.client.get(
             reverse("categories:detail", kwargs={"category_slug": self.category.slug})
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Test Post")
+        self.assertContains(response, "Test Post 1")
+
+        self.assertEqual(len(response.context["page_obj"]), 10)
+        self.assertContains(response, f'href="?page=2"')
+
+        response_page_2 = self.client.get(
+            reverse('categories:detail', kwargs={'category_slug': self.category.slug}) + '?page=2')
+        self.assertEqual(response_page_2.status_code, 200)
+        self.assertEqual(len(response_page_2.context["page_obj"]), 5)
