@@ -75,6 +75,8 @@ class CategoryDetailViewTest(TestDataMixin, TestCase):
         self.assertContains(response, f'href="?page=2"')
 
         response_page_2 = self.client.get(
-            reverse('categories:detail', kwargs={'category_slug': self.category.slug}) + '?page=2')
+            reverse("categories:detail", kwargs={"category_slug": self.category.slug})
+            + "?page=2"
+        )
         self.assertEqual(response_page_2.status_code, 200)
         self.assertEqual(len(response_page_2.context["page_obj"]), 5)
