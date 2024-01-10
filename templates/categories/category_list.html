@@ -6,16 +6,37 @@
 
 {% block content %}
 
-  {% for main_category in objects %}
+  {% for main_category in main_categories %}
     <h2>{{ main_category.title }}</h2>
-
-    {% for category in main_category.category_set.all %}
-      <h3>{{ category.title }}</h3>
-      <h4>{{ category.description }}</h4>
-      <a href="{% url 'categories:detail' category_slug=category.slug %}" class="waves-effect waves-light btn">Go
-        to...</a>
-    {% endfor %}
-
+    <table class="highlight">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Posts</th>
+        <th>Comments</th>
+        <th>Last comment</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for category in categories %}
+        {% if category.main_category == main_category %}
+          <tr>
+            <td>
+              <ul>
+                <li><h3>{{ category.title }}</h3></li>
+                <li>{{ category.description }}</li>
+              </ul>
+            </td>
+            <td>{{ category.post_count }}</td>
+            <td>{{ category.comment_count }}</td>
+            <td>{{ category.last_comment }}</td>
+            <td><a href="{% url 'categories:detail' category_slug=category.slug %}"
+                   class="waves-effect waves-light btn">Go to...</a></td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
   {% endfor %}
 
 {% endblock %}
