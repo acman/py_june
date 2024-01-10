@@ -7,7 +7,8 @@ from posts.models import Post
 
 
 def category_list(request: HttpRequest) -> HttpResponse:
-    objects = MainCategory.objects.prefetch_related("category_set", "category_set__post_set").all()
+    objects = MainCategory.objects.prefetch_related(
+        "category_set", "category_set__post_set", "category_set__post_set__comment_set").all()
 
     return render(request, "categories/category_list.html",
                   {"objects": objects})

@@ -21,7 +21,8 @@
 
     <tbody>
       {% for category in main_category.category_set.all %}
-        {% for post in category.post_set.all %}
+        {% with post_count=category.post_set.count %}
+        {% with comment_count=category.post_set.comment_set.count %}
           <tr>
             <td>
               <ul>
@@ -29,15 +30,16 @@
                 <li>{{ category.description }}</li>
               </ul>
             </td>
-            <td>{{ category.post_set.count }}</td>
+            <td>{{ post_count }}</td>
 
-            <td>{{ post.comment_set.count}}</td>
+            <td>{{ comment_count }}</td>
             <td>Last comment</td>
             <td><a href="{% url 'categories:detail' category_slug=category.slug %}" class="waves-effect waves-light btn">Go
             to...</a>
             </td>
           </tr>
-        {% endfor %}
+        {% endwith %}
+        {% endwith %}
       {% endfor %}
     </tbody>
     </table>
