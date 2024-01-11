@@ -279,6 +279,7 @@ label {
 .sidenav {
   background: transparent;
   backdrop-filter: blur(20px);
+  width: 70%;
 }
 
 .submit-button {
