@@ -6,6 +6,7 @@ from django.views import View
 from django.views.generic import DeleteView, UpdateView
 
 from categories.models import Category
+from comments.forms import CommentForm
 from comments.models import Comment
 from posts.forms import PostForm
 from posts.models import Post
