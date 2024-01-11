@@ -184,7 +184,7 @@ msgstr "Головна"
 
 #: templates/home.html:17
 msgid "PY_JUNE - Code, Learn, and Grow Together!"
-msgstr "PY_JUNE - Кодіть, Навчайтеся, та Розвивайтеся Разом!"
+msgstr "PY_JUNE - Програмуйте, Навчайтеся, та Розвивайтеся Разом!"
 
 #: templates/home.html:27
 msgid "There should be one-- and preferably only one --obvious way to do it."
