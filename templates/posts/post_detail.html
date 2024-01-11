@@ -1,4 +1,5 @@
 {% extends 'content.html' %}
+{% load i18n %}
 
 {% block title %}
   {{ post.title }}
@@ -24,25 +25,25 @@
   <div class="row">
     <div class="col s6">
       <a href="{% url 'categories:detail' category_slug=post.category.slug %}" class="waves-effect waves-light btn">
-        Back
+        {% trans "Back" %}
       </a>
       <a href="{% url 'comments:create' post_slug=post.slug %}" class="waves-effect waves-light btn">
-        Answer
+        {% trans "Answer" %}
       </a>
 
     </div>
     <div class="col s6 center">
       {% if request.user.is_authenticated and request.user.id == post.author.id %}
-        <a href="{% url 'posts:update' post_slug=post.slug %}" class="waves-effect waves-light btn">Edit</a>
+        <a href="{% url 'posts:update' post_slug=post.slug %}" class="waves-effect waves-light btn">{% trans "Edit" %}</a>
         <a href="{% url 'posts:delete' post_slug=post.slug %}"
-           class="waves-effect waves-light btn red darken-2">Delete</a>
+           class="waves-effect waves-light btn red darken-2">{% trans "Delete" %}</a>
       {% endif %}
     </div>
   </div>
 
   <div class="row">
     <div class="col s12">
-      <h3>Answers</h3>
+      <h3>{% trans "Answers" %}</h3>
       {% for comment in post.comments.all %}
         <div class="row">
           <div class="input-field col s2">
