@@ -6,8 +6,12 @@ from core.models import SlugModel
 class Post(SlugModel):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=500, blank=True)
-    author = models.ForeignKey("users.ForumUser", on_delete=models.CASCADE)
-    category = models.ForeignKey("categories.Category", on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        "users.ForumUser", on_delete=models.CASCADE, related_name="posts"
+    )
+    category = models.ForeignKey(
+        "categories.Category", on_delete=models.CASCADE, related_name="posts"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)

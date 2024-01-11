@@ -1,20 +1,21 @@
 {% extends 'content.html' %}
+{% load i18n %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}
-   Comment
+{% trans "Comment" %}
 {% endblock %}
 
 {% block breadcrumbs %}
   <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post }}</a>
-  / <span class="active">Comments</span>
+  / <span class="active">{% trans "Comments" %}</span>
 {% endblock %}
 
 {% block content %}
-    <h1>Comment {{ post.title }}</h1>
-    <form method="post" class="create-comment-form">
-      {% csrf_token %}
-      {% crispy form %}
-    </form>
+  <h1>{% trans "Comment" %} {{ post.title }}</h1>
+  <form method="post" class="create-comment-form">
+    {% csrf_token %}
+    {% crispy form %}
+  </form>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title %}
-  Home
+{% trans "Home" %}
 {% endblock %}
 
 {% block body %}
@@ -13,7 +14,7 @@
         <!--   Icon Section   -->
         <div class="row">
           <div class="col s12 center">
-            <h1 id="slogan">PY_JUNE - Code, Learn, and Grow Together!</h1>
+            <h1 id="slogan">{% trans "PY_JUNE - Code, Learn, and Grow Together!" %}</h1>
           </div>
         </div>
       </div>
@@ -21,13 +22,13 @@
 
     <div id="index-banner" class="parallax-container">
       <div class="section no-pad-bot">
-        <div class="container">
-          <div class="row center">
-            <h3 class="header col s12 light">There should be one-- and preferably only one --obvious way to do it.</h3>
+        <div class="container"> 
+          <div class="row center"> 
+            <h3 class="header col s12 light">{% trans "There should be one-- and preferably only one --obvious way to do it." %}</h3>
           </div>
           <div class="row center">
             <a href="{% url "posts:create" category_slug="general-coding-help" %}" id="download-button"
-               class="btn waves-effect"><h4>Ask question</h4></a>
+               class="btn waves-effect"><h4>{% trans "Ask question" %}</h4></a>
           </div>
           <br><br>
 
@@ -46,14 +47,16 @@
             <div class="icon-block">
               <h2>
                 <span><i class="material-icons">flash_on</i></span>
-                Last posts
+                {% trans "Last posts" %}
               </h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
                 nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
                 ultricies
                 eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-                pretium eget</p>
+                pretium eget
+              </p>
             </div>
           </div>
 
@@ -61,14 +64,16 @@
             <div class="icon-block">
               <h2>
                 <span><i class="material-icons">trending_up</i></span>
-                Most hot
+                {% trans "Most hot" %}
               </h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
                 nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
                 ultricies
                 eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-                pretium eget</p>
+                pretium eget
+              </p>
             </div>
           </div>
 
@@ -76,7 +81,7 @@
             <div class="icon-block">
               <h2>
                 <span><i class="material-icons">help_outline</i></span>
-                Need help
+                {% trans "Need help" %} 
               </h2>
 
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
@@ -96,7 +101,7 @@
       <div class="section no-pad-bot">
         <div class="container">
           <div class="row center">
-            <h3 class="header col s12 light">Beautiful is better than ugly.</h3>
+            <h3 class="header col s12 light">{% trans "Beautiful is better than ugly." %}</h3>
           </div>
         </div>
       </div>
@@ -108,7 +113,7 @@
 
         <div class="row">
           <div class="col s12">
-            <h2>User activities</h2>
+            <h2>{% trans "User activities" %}</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
               nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
               eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
@@ -128,7 +133,7 @@
       <div class="section no-pad-bot">
         <div class="container">
           <div class="row center">
-            <h3 class="header col s12 light">Simple is better than complex.</h3>
+            <h3 class="header col s12 light">{% trans "Simple is better than complex." %}</h3>
           </div>
         </div>
       </div>

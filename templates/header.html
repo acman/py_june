@@ -1,33 +1,40 @@
+{% load i18n %}
+
 <nav class="nav" role="navigation">
   <div class="nav-wrapper container">
     <a id="logo-container" href="{% url 'home' %}" class="brand-logo">py_june</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="{% url 'categories:list' %}">Forum</a></li>
+      {% if request.LANGUAGE_CODE == 'uk' %}
+        <li><a id="change-language" href="/en/">uk</a></li>
+      {% else %}
+        <li><a id="change-language" href="/uk/">en</a></li>
+      {% endif %}
+      <li><a href="{% url 'categories:list' %}">{% trans "Forum" %}</a></li>
       {% if user.is_authenticated %}
         <li>
           <a href="#" onclick="document.getElementById('logoutForm').submit();">
-            Logout
+            {% trans "Logout" %}
           </a>
         </li>
         <form id="logoutForm" method="post" action="{% url 'users:logout' %}" style="display: none;">
           {% csrf_token %}
         </form>
       {% else %}
-        <li><a href="{% url 'users:login' %}">Login</a></li>
-        <li><a href="{% url 'users:signup' %}">Sign up</a></li>
+        <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li>
+        <li><a href="{% url 'users:signup' %}">{% trans "Sign up" %}</a></li>
       {% endif %}
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
       <li>
         <a style="color: #fff;" href="{% url 'categories:list' %}">
-          Forum 
+          {% trans "Forum" %} 
         </a>
       </li>
       {% if user.is_authenticated %}
         <li>
           <a style="color: #fff;" href="#" onclick="document.getElementById('logoutForm').submit();">
-            Logout
+            {% trans "Logout" %}
           </a>
         </li>
         <form id="logoutForm" method="post" action="{% url 'users:logout' %}" style="display: none;">
@@ -36,14 +43,19 @@
       {% else %}
         <li>
           <a style="color: #fff;" href="{% url 'users:login' %}">
-            Login
+            {% trans "Login" %}
           </a>
         </li>
         <li>
           <a style="color: #fff;" href="{% url 'users:signup' %}">
-            Sign up
+            {% trans "Sign up" %}
           </a>
         </li>
+      {% endif %}
+      {% if request.LANGUAGE_CODE == 'uk' %}
+        <li><a style="color: #fff;" href="/en/">Українська</a></li>
+      {% else %}
+        <li><a style="color: #fff;" href="/uk/">English</a></li>
       {% endif %}
     </ul>
     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">Menu</i></a>

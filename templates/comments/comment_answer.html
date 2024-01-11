@@ -1,18 +1,19 @@
 {% extends 'content.html' %}
+{% load i18n %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}
-   Answer
+{% trans "Answer" %}
 {% endblock %}
 
 {% block breadcrumbs %}
   <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post }}</a>
-  / <span class="active">Comments</span> / <span class="active">Answer</span>
+  / <span class="active">{% trans "Comments" %}</span> / <span class="active">{% trans "Answer" %}</span>
 {% endblock %}
 
 {% block content %}
-    <h1>Comment for "{{ comment.title }}"</h1>
+    <h1>{% trans "Comment for" %} "{{ comment.title }}"</h1>
     <p>{{ comment.content }}</p>
     <form method="post" class="answer-comment-form">
       {% csrf_token %}

@@ -1,9 +1,10 @@
 {% extends 'content.html' %}
+{% load i18n %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}
-  Delete Post
+{% trans "Delete Post" %}
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -12,12 +13,12 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Delete {{ post.title }}</h1>
+  <h1>{% trans "Delete" %} {{ post.title }}</h1>
   <form method="post" class="delete-post-form">
     {% csrf_token %}
-    <p>Are you sure you want to delete post "{{ post.title }}"</p>
+    <p>{% trans "Are you sure you want to delete post" %} "{{ post.title }}" ?</p>
     {{ form|crispy }}
-    <button type="submit" class="btn waves-effect waves-light">Confirm</button>
-    <a href="{% url 'posts:details' post_slug=post.slug %}" class="btn waves-effect waves-light">Cancel</a>
+    <button type="submit" class="btn waves-effect waves-light">{% trans "Confirm" %}</button>
+    <a href="{% url 'posts:details' post_slug=post.slug %}" class="btn waves-effect waves-light">{% trans "Cancel" %}</a>
   </form>
 {% endblock %}
