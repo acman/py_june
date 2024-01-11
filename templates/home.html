@@ -49,14 +49,12 @@
                 Last posts
               </h2>
 
-              <p>{{ last_post.title }}</p>
-              <p>{{ last_post.content }}</p>
-              <p>In category {{ last_post.category.title }}</p>
-              <div>
-                <a href="{% url 'posts:details' post_slug=last_post.slug %}" class="waves-effect waves-light btn ">
-                Go to post<i class="material-icons">send</i>
-                </a>
-              </div>
+              {% for post in last_posts %}
+                <div>
+                  <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post.title }}</a>
+                </div>
+              {% endfor %}
+
             </div>
           </div>
 
@@ -66,11 +64,10 @@
                 <span><i class="material-icons">trending_up</i></span>
                 Most hot
               </h2>
-              <p>{{ most_hot.comment_count }} comments</p>
-              <p>{{ most_hot.content }}</p>
+
               <div>
-                <a href="{% url 'posts:details' post_slug=most_hot.slug %}" class="waves-effect waves-light btn">
-                Go to discus <i class="material-icons">send</i>
+                <a href="{% url 'posts:details' post_slug=most_hot.slug %}">
+                {{ most_hot.title }}
                 </a>
               </div>
             </div>
@@ -83,11 +80,12 @@
                 Need help
               </h2>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
-                nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut
-                ultricies
-                eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
-                pretium eget</p>
+              {% for post in need_help_posts%}
+                <div>
+                  <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post.title }}</a>
+                </div>
+              {% endfor %}
+              <p></p>
             </div>
           </div>
         </div>
