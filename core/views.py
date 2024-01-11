@@ -10,8 +10,7 @@ def home(request: HttpRequest) -> HttpResponse:
     last_posts = Post.objects.filter(is_active=True).order_by("-updated_at")[:5]
     most_hot = (
         Post.objects.annotate(comment_count=Count("comments", distinct=True))
-        .order_by("-comment_count")
-        .first()
+        .order_by("-comment_count")[:5]
     )
     help_posts = Post.objects.filter(category_id=1)
     need_help_posts = help_posts.annotate(

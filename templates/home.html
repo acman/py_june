@@ -65,13 +65,14 @@
                 Most hot
               </h2>
 
-              <div>
-                <a href="{% url 'posts:details' post_slug=most_hot.slug %}">
-                {{ most_hot.title }}
-                </a>
+                {% for post in most_hot%}
+                  <div>
+                  <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post.title }}</a>
+                  </div>
+                {% endfor %}
+
               </div>
             </div>
-          </div>
 
           <div class="col s12 m4">
             <div class="icon-block">
@@ -85,11 +86,9 @@
                   <a href="{% url 'posts:details' post_slug=post.slug %}">{{ post.title }}</a>
                 </div>
               {% endfor %}
-              <p></p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
