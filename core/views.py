@@ -7,14 +7,22 @@ from posts.models import Post
 
 def home(request: HttpRequest) -> HttpResponse:
     last_posts = Post.objects.filter(is_active=True).order_by("-updated_at")[:5]
-    most_hot = Post.objects.annotate(
-        comment_count=Count("comments", distinct=True)).order_by("-comment_count").first()
+    most_hot = (
+        Post.objects.annotate(comment_count=Count("comments", distinct=True))
+        .order_by("-comment_count")
+        .first()
+    )
     help_posts = Post.objects.filter(category_id=1)
     need_help_posts = help_posts.annotate(
-        comment_count=Count("comments", distinct=True)).filter(comment_count=0)[:5]
+        comment_count=Count("comments", distinct=True)
+    ).filter(comment_count=0)[:5]
 
-    return render(request, "home.html", {
-        "last_posts": last_posts,
-        "most_hot": most_hot,
-        "need_help_posts": need_help_posts,
-    })
+    return render(
+        request,
+        "home.html",
+        {
+            "last_posts": last_posts,
+            "most_hot": most_hot,
+            "need_help_posts": need_help_posts,
+        },
+    )
