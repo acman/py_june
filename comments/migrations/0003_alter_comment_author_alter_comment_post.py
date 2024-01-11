@@ -7,28 +7,28 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("categories", "0004_rename_name_category_title_and_more"),
-        ("posts", "0002_post_slug"),
+        ("comments", "0002_comment_post"),
+        ("posts", "0003_alter_post_author_alter_post_category"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name="post",
+            model_name="comment",
             name="author",
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                related_name="posts",
+                related_name="comments",
                 to=settings.AUTH_USER_MODEL,
             ),
         ),
         migrations.AlterField(
-            model_name="post",
-            name="category",
+            model_name="comment",
+            name="post",
             field=models.ForeignKey(
                 on_delete=django.db.models.deletion.CASCADE,
-                related_name="posts",
-                to="categories.category",
+                related_name="comments",
+                to="posts.post",
             ),
         ),
     ]

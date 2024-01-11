@@ -1,4 +1,5 @@
 {% extends 'content.html' %}
+{% load i18n %}
 
 {% block title %}
   {{ category.title }}
@@ -17,7 +18,7 @@
     </div>
     <div class="col s4">
       <a href="{% url 'posts:create' category_slug=category.slug %}" class="waves-effect waves-light btn">
-        Create Post
+        {% trans "Create Post" %}
       </a>
     </div>
   </div>
@@ -27,9 +28,9 @@
       <table class="highlight">
         <thead>
         <tr>
-          <th>Post</th>
-          <th>Created</th>
-          <th>Post details</th>
+          <th>{% trans "Post" %}</th>
+          <th>{% trans "Created" %}</th>
+          <th>{% trans "Post details" %}</th>
         </tr>
         </thead>
         <tbody>
@@ -39,7 +40,7 @@
             <td><p>{{ post.updated_at }}</p></td>
             <td>
               <a href="{% url 'posts:details' post_slug=post.slug %}" class="waves-effect waves-light btn">
-                Details
+                {% trans "Details" %}
               </a>
             </td>
           </tr>
@@ -63,7 +64,4 @@
     </ul>
   </div>
 
-
 {% endblock %}
-
-

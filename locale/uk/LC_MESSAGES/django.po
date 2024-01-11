@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-11 02:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: py_june/settings.py:119
+msgid "English"
+msgstr ""
+
+#: py_june/settings.py:120
+msgid "Ukrainian"
+msgstr ""
+
+#: templates/categories/category_detail.html:21
+#: templates/posts/post_form.html:7 templates/posts/post_form.html:12
+msgid "Create Post"
+msgstr "Створити пост"
+
+#: templates/categories/category_detail.html:31
+msgid "Post"
+msgstr "Пост"
+
+#: templates/categories/category_detail.html:32
+msgid "Created"
+msgstr "Створений"
+
+#: templates/categories/category_detail.html:33
+msgid "Post details"
+msgstr "Деталі посту"
+
+#: templates/categories/category_detail.html:43
+msgid "Details"
+msgstr "Деталі"
+
+#: templates/categories/category_list.html:5 templates/header.html:12
+#: templates/header.html:31
+msgid "Forum"
+msgstr "Форум"
+
+#: templates/categories/category_list.html:16
+msgid "Posts"
+msgstr "Пости"
+
+#: templates/categories/category_list.html:17
+#: templates/comments/comment_answer.html:12
+#: templates/comments/comment_form.html:12
+msgid "Comments"
+msgstr "Коментарі"
+
+#: templates/categories/category_list.html:18
+msgid "Last comment"
+msgstr "Останній коментарій"
+
+#: templates/categories/category_list.html:35
+msgid "Go to"
+msgstr "Перейти до"
+
+#: templates/comments/comment_answer.html:7
+#: templates/comments/comment_answer.html:12
+#: templates/posts/post_detail.html:31
+msgid "Answer"
+msgstr "Відповісти"
+
+#: templates/comments/comment_answer.html:16
+msgid "Comment for"
+msgstr "Коментар для"
+
+#: templates/comments/comment_delete.html:7
+msgid "Delete Comment"
+msgstr "Видалити коментар"
+
+#: templates/comments/comment_delete.html:16
+msgid "Delete comment for"
+msgstr "Видалити коментар для"
+
+#: templates/comments/comment_delete.html:19
+msgid "Are you sure you want to delete comment for"
+msgstr "Ви впевнені що хочете видалити коментар для"
+
+#: templates/comments/comment_delete.html:21
+#: templates/posts/post_delete.html:21
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: templates/comments/comment_delete.html:22
+#: templates/comments/comment_update.html:21
+#: templates/posts/post_delete.html:22 templates/posts/post_update.html:21
+msgid "Cancel"
+msgstr "Відмінити"
+
+#: templates/comments/comment_form.html:7
+#: templates/comments/comment_form.html:16
+msgid "Comment"
+msgstr "Коментар"
+
+#: templates/comments/comment_update.html:7
+#: templates/comments/comment_update.html:16
+msgid "Edit Comment"
+msgstr "Змінити коментар"
+
+#: templates/comments/comment_update.html:20
+#: templates/posts/post_update.html:20
+msgid "Save Changes"
+msgstr "Зберегти зміни"
+
+#: templates/footer.html:7
+msgid "Company Bio"
+msgstr "Опис компанії"
+
+#: templates/footer.html:9
+msgid ""
+" We are a team of college students working on this project like it's our "
+"full time job. \n"
+"          Any amount would help support and continue development on this "
+"project and is greatly appreciated. "
+msgstr ""
+"Ми команда студентів коледжу, які працюють над цим проектом, ніби це наша "
+"повна зайнятість. \n"
+"Будь-яка сума допоможе підтримати та продовжити розвиток"
+"проект і дуже цінується."
+
+#: templates/footer.html:15
+msgid "Settings"
+msgstr "Налаштування"
+
+#: templates/footer.html:17 templates/footer.html:26
+msgid "Link 1"
+msgstr ""
+
+#: templates/footer.html:18 templates/footer.html:27
+msgid "Link 2"
+msgstr ""
+
+#: templates/footer.html:19 templates/footer.html:28
+msgid "Link 3"
+msgstr ""
+
+#: templates/footer.html:20 templates/footer.html:29
+msgid "Link 4"
+msgstr ""
+
+#: templates/footer.html:24
+msgid "Connect"
+msgstr "З`єднати"
+
+#: templates/footer.html:36
+msgid "Made by"
+msgstr "Зроблено завдяки"
+
+#: templates/header.html:16 templates/header.html:37
+msgid "Logout"
+msgstr "Вийти"
+
+#: templates/header.html:23 templates/header.html:46
+#: templates/users/login.html:9
+msgid "Login"
+msgstr "Увійти"
+
+#: templates/header.html:24 templates/header.html:51
+msgid "Sign up"
+msgstr "Зареєструватися"
+
+#: templates/home.html:6
+msgid "Home"
+msgstr "Головна"
+
+#: templates/home.html:17
+msgid "PY_JUNE - Code, Learn, and Grow Together!"
+msgstr "PY_JUNE - Програмуйте, Навчайтеся, та Розвивайтеся Разом!"
+
+#: templates/home.html:27
+msgid "There should be one-- and preferably only one --obvious way to do it."
+msgstr "Має бути один -- і бажано лише один -- очевидний спосіб це зробити."
+
+#: templates/home.html:31
+msgid "Ask question"
+msgstr "Задати питання"
+
+#: templates/home.html:50
+msgid "Last posts"
+msgstr "Останній пост"
+
+#: templates/home.html:67
+msgid "Most hot"
+msgstr "Найпопулярніший"
+
+#: templates/home.html:84
+msgid "Need help"
+msgstr "Потрібна допомога"
+
+#: templates/home.html:104
+msgid "Beautiful is better than ugly."
+msgstr "Красиве краще, ніж потворне."
+
+#: templates/home.html:116
+msgid "User activities"
+msgstr "Діяльність користувача"
+
+#: templates/home.html:136
+msgid "Simple is better than complex."
+msgstr "Просте краще, ніж складне."
+
+#: templates/posts/post_delete.html:7
+msgid "Delete Post"
+msgstr "Видалити пост"
+
+#: templates/posts/post_delete.html:16 templates/posts/post_detail.html:39
+msgid "Delete"
+msgstr "Видалити"
+
+#: templates/posts/post_delete.html:19
+msgid "Are you sure you want to delete post"
+msgstr "Ви впевнені що хочете видалити пост"
+
+#: templates/posts/post_detail.html:28
+msgid "Back"
+msgstr "Назад"
+
+#: templates/posts/post_detail.html:37
+msgid "Edit"
+msgstr "Змінити"
+
+#: templates/posts/post_detail.html:46
+msgid "Answers"
+msgstr "Відповіді"
+
+#: templates/posts/post_form.html:16
+msgid "Create a new post in"
+msgstr "Створити новий пост в"
+
+#: templates/posts/post_update.html:7
+msgid "Update Post"
+msgstr "Оновити пост"
+
+#: templates/posts/post_update.html:16
+msgid "Update"
+msgstr "Оновити"
+
+#: templates/users/signup.html:9
+msgid "Registration"
+msgstr "Реєстрація"
