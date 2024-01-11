@@ -8,6 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
     dependencies = [
         ("categories", "0005_alter_category_main_category"),
+        ("categories", "0004_rename_name_category_title_and_more"),
         ("posts", "0002_post_slug"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
