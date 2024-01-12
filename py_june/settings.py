@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     "categories.apps.CategoriesConfig",
     "posts.apps.PostsConfig",
     "comments.apps.CommentsConfig",
+    # TODO PJ-75
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -138,6 +141,26 @@ STATICFILES_DIRS = [
 ]
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": [
+            ["Bold", "Italic", "Underline", "Strike"],
+            ["NumberedList", "BulletedList", "Outdent", "Indent"],
+            ["RemoveFormat"],
+            ["Source"],
+            ["CodeSnippet"],
+        ],
+        "codeSnippet_theme": "github",  # Set the syntax highlighting theme
+        "extraPlugins": ",".join(["codesnippet"]),
+        "width": 1000,
+        "tabSpaces": 4,  # Set the number of spaces for each tab
+        "autoGrow_minHeight": 200,
+        "autoGrow_bottomSpace": 10,
+    }
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
