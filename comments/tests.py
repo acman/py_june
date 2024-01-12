@@ -27,7 +27,6 @@ class CreateCommentTest(TestDataMixin, TestCase):
         self.client.force_login(self.user)
 
         data = {
-            "title": "Test Comment1",
             "content": "Rest comment content1",
         }
 
@@ -41,8 +40,7 @@ class CreateCommentTest(TestDataMixin, TestCase):
             ),
         )
 
-        comment = Comment.objects.get(title="Test Comment1")
-        self.assertEqual(comment.title, "Test Comment1")
+        comment = Comment.objects.get(content="Rest comment content1")
         self.assertEqual(comment.post, self.post)
 
 
@@ -68,7 +66,6 @@ class UpdateCommentTest(TestDataMixin, TestCase):
         self.client.force_login(self.user)
 
         data = {
-            "title": "Update Comment1",
             "content": "Update comment content1",
         }
 
@@ -79,8 +76,8 @@ class UpdateCommentTest(TestDataMixin, TestCase):
             response, reverse("posts:details", kwargs={"post_slug": self.post.slug})
         )
 
-        comment = Comment.objects.get(title="Update Comment1")
-        self.assertEqual(comment.title, "Update Comment1")
+        comment = Comment.objects.get(content="Update comment content1")
+        self.assertEqual(comment.content, "Update comment content1")
         self.assertEqual(comment.post, self.post)
 
 
