@@ -125,7 +125,6 @@ class AnswerCommentView(LoginRequiredMixin, View):
 
         if form.is_valid():
             answer = form.save(commit=False)
-            answer.title = comment.title
             answer.author = self.request.user
             answer.post_id = post.pk
             answer.save()

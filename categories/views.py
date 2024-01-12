@@ -14,7 +14,7 @@ def category_list(request: HttpRequest) -> HttpResponse:
     last_comment_subquery = (
         Comment.objects.filter(post__category=OuterRef("pk"))
         .order_by("-created_at")
-        .values("title")[:1]
+        .values("content")[:1]
     )
 
     categories = Category.objects.annotate(

@@ -44,6 +44,13 @@ Check code
 Run tests  
 `make test`
 
+## Internalization
+1. Install gettext  
+    `brew install gettext`
+2. Compile messages  
+    `python manage.py compilemessages -l uk`
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 

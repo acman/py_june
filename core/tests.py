@@ -7,12 +7,6 @@ from comments.models import Comment
 from posts.models import Post
 
 
-class HomePageTest(TestCase):
-    def test_home_page_get_success(self):
-        response = self.client.get(reverse("home"))
-        self.assertEqual(response.status_code, 200)
-
-
 class TestDataMixin:
     def setUp(self):
         self.user = get_user_model().objects.create_user(
@@ -36,8 +30,17 @@ class TestDataMixin:
         )
 
         self.comment = Comment.objects.create(
-            title="Test comment",
             content="Test Comment content",
             author=self.user,
             post_id=self.post.pk,
         )
+
+
+class HomePageTest(TestDataMixin, TestCase):
+    def test_home_page_get_success(self):
+        response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+
+        self.assertIn(self.post, response.context["last_posts"])
+        self.assertIn(self.post, response.context["most_hot"])
+        self.assertIn(self.comment, response.context["user_activities"])
