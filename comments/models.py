@@ -3,8 +3,7 @@ from django.db import models
 
 
 class Comment(models.Model):
-    title = models.CharField(max_length=50, blank=True)
-    content = RichTextUploadingField(default="", null=True, blank=True)
+    content = RichTextUploadingField(default="", blank=True)
     author = models.ForeignKey(
         "users.ForumUser", on_delete=models.CASCADE, related_name="comments"
     )
