@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 from core.models import SlugModel
@@ -5,7 +6,7 @@ from core.models import SlugModel
 
 class Post(SlugModel):
     title = models.CharField(max_length=50)
-    content = models.TextField(max_length=500, blank=True)
+    content = RichTextUploadingField(default="", blank=True, null=True)
     author = models.ForeignKey(
         "users.ForumUser", on_delete=models.CASCADE, related_name="posts"
     )

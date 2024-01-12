@@ -25,4 +25,5 @@ urlpatterns = i18n_patterns(
     path("users/", include("users.urls")),
     path("posts/", include("posts.urls")),
     path("comments/", include("comments.urls")),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
 )

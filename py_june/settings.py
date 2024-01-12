@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
+    "ckeditor",
+    "ckeditor_uploader",
     "crispy_bootstrap4",
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
@@ -138,6 +140,22 @@ STATICFILES_DIRS = [
 ]
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        # 'codeSnippet_theme': 'monkai',
+        "toolbar": "Basic",
+        # 'extraPlugins': ', '.join(
+        #     [
+        #         'codesnipets',
+        #         'widgets',
+        #         'dialogs',
+        #     ]
+        # ),
+    }
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
