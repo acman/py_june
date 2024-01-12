@@ -1,7 +1,8 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 from core.models import SlugModel
-from ckeditor_uploader.fields import RichTextUploadingField
+
 
 class Post(SlugModel):
     title = models.CharField(max_length=50)

@@ -1,5 +1,6 @@
-from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
+
 
 class Comment(models.Model):
     content = RichTextUploadingField(max_length=500, blank=True)
