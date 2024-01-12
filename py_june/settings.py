@@ -41,14 +41,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "crispy_forms",
-    "ckeditor",
-    "ckeditor_uploader",
     "crispy_bootstrap4",
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
     "categories.apps.CategoriesConfig",
     "posts.apps.PostsConfig",
     "comments.apps.CommentsConfig",
+    # TODO PJ-75
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -144,15 +145,19 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_CONFIGS = {
     "default": {
-        # 'codeSnippet_theme': 'monkai',
-        "toolbar": "Basic",
-        # 'extraPlugins': ', '.join(
-        #     [
-        #         'codesnipets',
-        #         'widgets',
-        #         'dialogs',
-        #     ]
-        # ),
+        "toolbar": [
+            ['Bold', 'Italic', 'Underline', 'Strike'],
+            ['NumberedList', 'BulletedList', 'Outdent', 'Indent'],
+            ['RemoveFormat'],
+            ['Source'],
+            ['CodeSnippet'],
+        ],   
+        'codeSnippet_theme': 'github',  # Set the syntax highlighting theme
+        'extraPlugins': ','.join(['codesnippet']),
+        'width': 1000,
+        'tabSpaces': 4,  # Set the number of spaces for each tab
+        'autoGrow_minHeight': 200,
+        'autoGrow_bottomSpace': 10,
     }
 }
 
