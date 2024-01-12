@@ -1,5 +1,7 @@
 # py_june
 
+# !!! Repository was moved to https://github.com/lambda-py/py_june
+
 Python help forum - a place where you can ask questions about python and get answers 
 from other users.
 
