@@ -1,8 +1,8 @@
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Comment(models.Model):
-    content = models.TextField(max_length=500, blank=True)
+    content = RichTextUploadingField(max_length=500, blank=True)
     author = models.ForeignKey(
         "users.ForumUser", on_delete=models.CASCADE, related_name="comments"
     )
